@@ -1,0 +1,133 @@
+@font-face {
+    font-family: 'bf-regular';
+    src: url(./fonts/bf-text-regular.ttf);
+}
+
+@font-face {
+    font-family: 'bf-headline';
+    src: url(./fonts/bf-headline-narrow-bold.ttf) format('opentype');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(./media/img/background.jpg) no-repeat;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    padding: 0.5% 1%;
+    position: fixed;
+    z-index: 100;
+}
+
+.logo {
+    width: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    font-family: bf-headline;
+    font-size: 2.2rem;
+}
+
+.dropdown::after {
+    content: " ▼";
+    font-size: 10px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+header {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers the content vertically */
+    text-align: center;
+    -webkit-mask-image: linear-gradient(180deg,#000 85%,transparent);
+
+}
+
+video {
+    width: 100%;
+    object-fit: cover;
+    -webkit-mask-image: linear-gradient(180deg,#000 85%,transparent);
+    
+}
+
+#header-video {
+    filter: opacity(0.65);
+    z-index: 1;
+}
+
+#header-intro {
+    color: white;
+    font-family: bf-regular;
+    font-size: 1.5rem;
+    z-index: 2;
+    width: 60%;
+    position: absolute;
+}
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #000;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        color: white;
+    }
+
+    #header-intro {
+        font-size: 0.8rem; /* Reduce the font size for smaller screens */
+        width: 90%; /* Allow more width for smaller devices */
+    }
+
+    header {
+        height: 60vh; /* Reduce the header height on smaller screens */
+    }
+}
