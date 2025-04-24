@@ -12,16 +12,17 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
 }
 
 html {
-    scroll-snap-type: both proximity;
-    scroll-padding-top: 10%;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+    scroll-padding-top: 9.7%;
 }
 
 body {
-    background: url(./media/img/background.jpg) no-repeat;
+    background: url(./media/img/background.png) no-repeat fixed;
+    background-size: cover;
     overflow-x: hidden;
 }
 
@@ -45,6 +46,7 @@ a {
     position: fixed;
     z-index: 100;
     border-bottom: #ff3c04 3px solid;
+    animation: borderFadeIn 2s ease-in;
 }
 
 .logo {
@@ -108,6 +110,7 @@ video {
     z-index: 2;
     width: 60%;
     position: absolute;
+    animation: headerintroFadeIn 2.5s ease-in
 }
 
 .homepage {
@@ -164,6 +167,24 @@ video {
 .homepageImg img {
     filter: drop-shadow(5px 5px 10px rgb(255, 255, 255, 0.5))
 
+}
+
+@keyframes headerintroFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes borderFadeIn {
+    0% {
+        border-bottom: #ff3c04 0px solid;
+    }
+    100% {
+        border-bottom: #ff3c04 3px solid;
+    }
 }
 
 @media (max-width: 768px) {
