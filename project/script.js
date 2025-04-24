@@ -10,7 +10,7 @@ gsap.from(".lockerweaponimg", {
     toggleActions: "restart pause reverse pause",
     start: "top 80%",
     scrub: 1,
-    end: "top 20%",
+    end: "top 25%",
   },
   x: 700,
   rotation: 45,
