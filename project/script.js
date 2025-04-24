@@ -64,6 +64,18 @@ gsap.from(".vehicleshot", {
   duration: 0.2
 });
 
+gsap.from(".signup", {
+  scrollTrigger: {
+    trigger: ".signup",
+    start: "top 90%",
+    end: "top 50%",
+  },
+  y: 300,
+  scale: 0.6,
+  opacity: 0,
+  duration: 1
+})
+
 function updateDateTime() {
   const now = new Date();
   const options = { 

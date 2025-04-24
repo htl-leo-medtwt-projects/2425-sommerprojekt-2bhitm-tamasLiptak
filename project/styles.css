@@ -36,6 +36,13 @@ a {
     color: inherit;
 }
 
+h1 {
+    font-family: bf-headline;
+    font-size: 4rem;
+    color: white;
+    text-align: center;
+}
+
 .navbar {
     width: 100%;
     display: flex;
@@ -228,6 +235,72 @@ video {
     position: absolute;
     left: 68%;
     top: 20%;
+}
+
+.signup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10% auto;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.signupText {
+    font-family: bf-regular;
+    font-size: 1.5rem;
+    color: white;
+    height: 100%;
+    padding: 15% 5%;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5%;
+}
+
+.form input {
+    width: 40%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    font-family: bf-headline;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.submitButton {
+    font-family: bf-headline;
+    font-size: 3em;
+    border: 4px solid white;
+    background-color: white;
+    color: black;
+    padding: 2% 3%;
+    width: 80%;
+    cursor: pointer;
+    text-align: center;
+    transition: all 150ms ease-in;
+}
+
+.submitButton:hover {
+    background-color: #ff3c04;
+    color: white;
+    border: 4px solid #ff3c04;
+}
+
+
+footer {
+    width: 100%;
+    height: 400px;
+    background: rgb(53, 53, 53);
 }
 
 @keyframes headerintroFadeIn {
