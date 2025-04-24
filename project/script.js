@@ -17,3 +17,13 @@ gsap.from(".lockerweaponimg", {
   scale: 0.5,
   duration: 2
 });
+
+gsap.from(".homepageText p", {
+  scrollTrigger: {
+    trigger: ".homepageText",
+    start: "top 80%",
+    end: "top 20%",
+  },
+  x: -700,
+  duration: 1.5
+});
