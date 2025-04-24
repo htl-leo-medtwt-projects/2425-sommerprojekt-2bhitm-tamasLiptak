@@ -216,11 +216,18 @@ video {
 .homepageImg {
     background: url(./media/img/weaponbackground.jpg) no-repeat center center;
     background-size: cover;
+    position: relative;
 }
 
 .homepageImg img {
     filter: drop-shadow(5px 5px 10px rgb(255, 255, 255, 0.5))
 
+}
+
+.vehicleshot {
+    position: absolute;
+    left: 68%;
+    top: 20%;
 }
 
 @keyframes headerintroFadeIn {
