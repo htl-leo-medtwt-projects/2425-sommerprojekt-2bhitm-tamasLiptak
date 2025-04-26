@@ -77,10 +77,11 @@ h1 {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
-    
+
 }
 
 .nav-links {
@@ -102,6 +103,15 @@ h1 {
     color: #ff3c04;
 }
 
+.nav-links.active {
+    padding: 5% 0 5% 10%;
+    top: 103%;
+}
+
+.nav-links.active a {
+    font-size: 1.8rem;
+}
+
 #dclink:hover {
     color: #7289da;
 }
@@ -119,6 +129,7 @@ h1 {
         transform: translateX(-100%);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
@@ -130,11 +141,12 @@ h1 {
         transform: translateX(120%);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
     }
-    
+
 }
 
 .menu-toggle {
@@ -146,9 +158,9 @@ h1 {
 .dropdown {
     position: relative;
     display: inline-block;
-  }
-  
-  .dropdown-content {
+}
+
+.dropdown-content {
     display: none;
     position: absolute;
     z-index: 1;
@@ -158,9 +170,9 @@ h1 {
     padding: 0 50%;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
-  }
-  
-  .dropdown-content a {
+}
+
+.dropdown-content a {
     color: white;
     text-decoration: none;
     display: block;
@@ -170,26 +182,26 @@ h1 {
     font-size: 1.2rem;
     font-weight: normal;
     margin: 15% 0;
-  }
-  
-  .dropdown-content a:hover {
+}
+
+.dropdown-content a:hover {
     color: #ff3c04;
-  }
-  
-  /* Show dropdown on hover (for desktop) */
-  .dropdown:hover .dropdown-content {
+}
+
+/* Show dropdown on hover (for desktop) */
+.dropdown:hover .dropdown-content {
     display: block;
-  }
-  
-  .dropdown > a::after {
+}
+
+.dropdown>a::after {
     content: " ▼";
     font-size: 10px;
     transition: all 150ms ease-in-out;
-  }
+}
 
-  .dropdown:hover > a::after {
+.dropdown:hover>a::after {
     color: #ff3c04;
-  } 
+}
 
 header {
     width: 100%;
@@ -199,7 +211,8 @@ header {
     background: #000;
     display: flex;
     justify-content: center;
-    align-items: center; /* Centers the content vertically */
+    align-items: center;
+    /* Centers the content vertically */
     text-align: center;
     border-bottom: #ff3c04 3px solid;
     scroll-snap-align: start;
@@ -208,7 +221,7 @@ header {
 
 video {
     width: 100%;
-    object-fit: cover;    
+    object-fit: cover;
 }
 
 #header-video {
@@ -232,7 +245,6 @@ video {
     justify-content: center;
     align-items: center;
     text-align: center;
-    scroll-snap-align: start;
 }
 
 .homepageItem {
@@ -243,7 +255,8 @@ video {
     text-align: center;
 }
 
-.homepageText, .homepageText1 {
+.homepageText,
+.homepageText1 {
     font-family: bf-regular;
     font-size: 1.5rem;
     color: white;
@@ -280,7 +293,6 @@ video {
 
 .homepageImg img {
     filter: drop-shadow(5px 5px 10px rgb(255, 255, 255, 0.5))
-
 }
 
 .vehicleshot {
@@ -314,12 +326,12 @@ video {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 80%;
     padding: 5%;
 }
 
 .form input {
-    width: 40%;
+    width: 100%;
     padding: 10px;
     margin: 5px 0;
     border: none;
@@ -327,6 +339,14 @@ video {
     font-size: 1.5rem;
     border-radius: 5px;
     background-color: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .submitButton {
@@ -357,7 +377,7 @@ footer {
 }
 
 .footer-top {
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -371,13 +391,15 @@ footer {
     max-width: 1200px;
 }
 
-.footer-section, .footer-socials {
+.footer-section,
+.footer-socials {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.footer-section h3, .footer-socials h3 {
+.footer-section h3,
+.footer-socials h3 {
     margin-bottom: 3%;
     font-size: 2rem;
     color: white;
@@ -385,14 +407,16 @@ footer {
     letter-spacing: 3px;
 }
 
-.footer-section a, .footer-socials a {
+.footer-section a,
+.footer-socials a {
     margin: 3% 0;
     text-decoration: none;
     color: #aaa;
     transition: all 100ms ease-in-out;
 }
 
-.footer-section a:hover, .footer-socials a:hover {
+.footer-section a:hover,
+.footer-socials a:hover {
     color: #ff3c04;
 }
 
@@ -528,6 +552,7 @@ select {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -537,12 +562,18 @@ select {
     0% {
         border-color: transparent;
     }
+
     100% {
         border-color: #ff3c04;
     }
 }
 
 @media (max-width: 768px) {
+    .logo {
+        width: 30%;
+        padding: 2%;
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;
@@ -558,17 +589,105 @@ select {
         display: flex;
     }
 
+    .dropdown-content a { 
+        font-size: 1rem; /*THIS WONT CHANGE HELP ME OMFG.*/
+    }
+
+    #datetime {
+        display: none;
+    }
+
+    .rightslide {
+        animation: none;
+    }
+
     .menu-toggle {
         display: block;
         color: white;
     }
 
     #header-intro {
-        font-size: 0.8rem; /* Reduce the font size for smaller screens */
-        width: 90%; /* Allow more width for smaller devices */
+        font-size: 1rem;
+        width: 85%;
     }
 
     header {
-        height: 60vh; /* Reduce the header height on smaller screens */
+        height: auto;
+    }
+
+    header video {
+        width: 160%;
+    }
+
+    .homepage {
+        grid-template-columns: 1fr;
+    }
+
+    .homepageText,
+    .homepageText1 {
+        font-size: 1.2rem;
+    }
+
+    #homepageImgResponsive {
+        display: none;
+    }
+
+    .lockerButton {
+        font-size: 1.5em;
+    }
+
+    .signup {
+        width: 90%;
+        grid-template-columns: 1fr;
+    }
+
+    .signupText {
+        font-size: 1.2rem;
+        padding: 10% 5%;
+    }
+
+    .form {
+        width: 100%;
+        padding: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section,
+    .footer-socials {
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .social-icons {
+        gap: 20px;
+    }
+
+    .footer-middle {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+    }
+
+    .studios-logo {
+        width: 80%;
+        margin-right: 0;
+    }
+
+    .footer-disclaimer {
+        text-align: center;
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .ea-section {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
     }
 }
