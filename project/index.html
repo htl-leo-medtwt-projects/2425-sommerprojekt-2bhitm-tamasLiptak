@@ -10,16 +10,25 @@
     <body>
 
         <nav class="navbar">
-            <div class="logo"><a href="#"><img
-                    src="./media/img/battlefield-franchise-logo.png"
-                    alt="battlefield"></a></div>
+            <div class="logo leftslide"><a href="#"><img
+                        src="./media/img/battlefield-franchise-logo.png"
+                        alt="battlefield"></a></div>
             <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-            <div class="nav-links" id="navLinks">
-                <a href="#" class="dropdown">GAMES</a>
-                <a href="#" class="dropdown">NEWS & COMMUNITY</a>
+            <div id="datetime"></div>
+            <div class="nav-links rightslide">
+                <div class="dropdown">
+                    <a href="#">GAMES</a>
+                    <div class="dropdown-content">
+                        <a href="#">Battlefield 2042</a>
+                        <a href="#">Battlefield V</a>
+                        <a href="#">Battlefield 1</a>
+                        <a href="#">Battlefield 4</a>
+                    </div>
+                </div>
+
                 <a href="#">BATTLEFIELD LABS</a>
-                <a href="#">BATTLEFIELD STUDIOS</a>
-                <a href="https://discord.com/invite/battlefield">JOIN
+                <a href="https://discord.com/invite/battlefield"
+                    style="color: #7289da;">JOIN
                     DISCORD</a>
             </div>
         </nav>
@@ -41,13 +50,71 @@
                 <br>
                 <p>
                     Whether you're calling the shots or charging in headfirst,
-                    this is where legends are made.<br><span style="font-weight: bold; line-height: 2;">Welcome to the
+                    this is where legends are made.<br><span
+                        style="font-weight: bold; line-height: 2;">Welcome to
+                        the
                         frontlines.</span>
                 </p>
             </div>
         </header>
 
+        <div class="homepage">
+            <div class="homepageItem homepageText">
+                <p>No battle plan survives contact—but your loadout can give you
+                    the edge. Customize your kit in the Locker and get ready to
+                    throw down. <br><span
+                        style="font-weight: bold; line-height: 2;">This is your
+                        war, your way.</span></p>
+                <div class="lockerButton"><a
+                        href="./locker.html"></a>GEAR UP</div>
+            </div>
+            <div class="homepageItem homepageImg">
+                <img src="./media/img/weapon.png" alt="weapon"
+                    class="lockerweaponimg">
+            </div>
+        </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+        <div class="homepage">
+            <div class="homepageItem homepageImg">
+                <img src="./media/img/vehicle.png" alt="vehicle"
+                    class="vehicleimg">
+                <div class="vehicleshot"><img src="./media/img/tankshot.png"
+                        alt="shot"></div>
+            </div>
+            <div class="homepageItem homepageText1">
+                <p>New to Battlefield or ready to catch up? Head to the store to
+                    grab your game, rally your squad, and dive straight into the
+                    chaos. <br><span
+                        style="font-weight: bold; line-height: 2;">Enter the
+                        chaos. Leave your mark.</span></p>
+                <div class="lockerButton"><a
+                        href="./locker.html"></a>STORE</div>
+            </div>
+        </div>
+
+        <div class="signup">
+            <div class="signupText">
+                <h1>SIGN UP FOR BATTLEFIELD™ NEWS</h1><br>
+                <p>Sign up today to get the latest Battlefield news, videos,
+                    offers, and more directly to your inbox (including updates
+                    on other EA news, products, events, and promotions).</p>
+            </div>
+            <div class="form">
+                <form>
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email"
+                        required>
+                    <br>
+                    <div class="submitButton">SIGN UP</div>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+        </footer>
+        <script
+            src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     </body>
 </html>
