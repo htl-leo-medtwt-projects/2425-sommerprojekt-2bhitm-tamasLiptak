@@ -41,6 +41,7 @@ h1 {
     font-size: 4rem;
     color: white;
     text-align: center;
+    letter-spacing: 2px;
 }
 
 .navbar {
@@ -94,6 +95,15 @@ h1 {
     position: relative;
     font-family: bf-headline;
     font-size: 2.2rem;
+    transition: all 150ms ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #ff3c04;
+}
+
+#dclink:hover {
+    color: #7289da;
 }
 
 .leftslide {
@@ -127,12 +137,6 @@ h1 {
     
 }
 
-
-.dropdown::after {
-    content: " ▼";
-    font-size: 10px;
-}
-
 .menu-toggle {
     display: none;
     font-size: 24px;
@@ -147,23 +151,29 @@ h1 {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #111;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     z-index: 1;
     flex-direction: column;
+    top: 100%;
+    left: -50%;
+    padding: 0 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
   }
   
   .dropdown-content a {
     color: white;
-    padding: 10px 16px;
     text-decoration: none;
     display: block;
     white-space: nowrap;
+    transition: all 150ms ease-in-out;
+    font-family: bf-regular;
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin: 15% 0;
   }
   
   .dropdown-content a:hover {
-    background-color: #333;
+    color: #ff3c04;
   }
   
   /* Show dropdown on hover (for desktop) */
@@ -171,11 +181,15 @@ h1 {
     display: block;
   }
   
-  /* Optional: dropdown arrow styling */
   .dropdown > a::after {
     content: " ▼";
     font-size: 10px;
+    transition: all 150ms ease-in-out;
   }
+
+  .dropdown:hover > a::after {
+    color: #ff3c04;
+  } 
 
 header {
     width: 100%;
@@ -334,11 +348,180 @@ video {
     border: 4px solid #ff3c04;
 }
 
-
 footer {
+    background-color: #252525;
+    color: #ccc;
+    font-size: 0.9rem;
+    font-family: bf-regular;
+    padding-top: 2%;
+}
+
+.footer-top {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-around;
     width: 100%;
-    height: 400px;
-    background: rgb(53, 53, 53);
+    max-width: 1200px;
+}
+
+.footer-section, .footer-socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-section h3, .footer-socials h3 {
+    margin-bottom: 3%;
+    font-size: 2rem;
+    color: white;
+    font-family: bf-headline;
+    letter-spacing: 3px;
+}
+
+.footer-section a, .footer-socials a {
+    margin: 3% 0;
+    text-decoration: none;
+    color: #aaa;
+    transition: all 100ms ease-in-out;
+}
+
+.footer-section a:hover, .footer-socials a:hover {
+    color: #ff3c04;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons svg {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0.8);
+    transition: filter 0.3s;
+}
+
+.social-icons svg:hover {
+    filter: brightness(1);
+}
+
+.footer-middle {
+    border-top: 1px solid #444;
+    padding-top: 2%;
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+}
+
+.studios-logo {
+    width: 50%;
+    margin-right: 40%;
+}
+
+.footer-disclaimer {
+    font-size: 0.8rem;
+    color: #777;
+    max-width: 600px;
+    text-transform: uppercase;
+    margin-top: 2%;
+    text-align: left;
+}
+
+.rating-logo {
+    margin-left: 10%;
+    width: 100%;
+}
+
+.footer-bottom {
+    width: 100%;
+    background-color: #161616;
+    border-top: 1px solid #333;
+    padding: 2% 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ea-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.ea-logo {
+    width: 50px;
+}
+
+.ea-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.ea-links a {
+    text-decoration: none;
+    color: #aaa;
+}
+
+.ea-links a:hover {
+    color: #fff;
+}
+
+.footer-legal {
+    margin: 20px 0;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-legal a {
+    text-decoration: none;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.footer-legal a:hover {
+    color: #fff;
+}
+
+.footer-locale {
+    display: flex;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.locale-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.locale-item label {
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+select {
+    background-color: #222;
+    color: #ccc;
+    border: 1px solid #555;
+    padding: 5px 10px;
+}
+
+.footer-copyright {
+    font-size: 12px;
+    color: #666;
+    margin-top: 20px;
 }
 
 @keyframes headerintroFadeIn {
