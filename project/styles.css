@@ -94,6 +94,16 @@ body.theme-bf4 {
     --p-font-family: bf-purista;
 }
 
+body.theme-store {
+    background: url(./media/img/store/background.jpeg) no-repeat fixed;
+    background-size: cover;
+    --border-color: #ff3c04;
+    --general-color: #ff3c04;
+    --hover-color: #ff3c04;
+    --h1-font-family: bf-headline;
+    --p-font-family: bf-regular;
+}
+
 img {
     width: 100%;
     height: auto;

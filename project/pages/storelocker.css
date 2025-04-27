@@ -1,11 +1,39 @@
 .storescreen {
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
+    animation: blurFadeIn 1.5s 500ms ease-in-out forwards;
+    display: grid;
+    grid-template-columns: 70% 30%;
 }
 
-.storescreen img {
+.gamepreview {
     width: 100%;
     height: 100%;
+    background-color: rgb(112, 112, 112);
+    overflow-y: scroll;
+}
+
+.orderpreview {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(97, 97, 97);
+}
+
+.storecard {
+    width: 80%;
+    height: 40%;
+    margin: 2% auto;
+    background-color: black;
+}
+
+@keyframes blurFadeIn {
+    from {
+        background: rgba(0, 0, 0, 0.0);
+        backdrop-filter: blur(0px);
+    }
+
+    to {
+        backdrop-filter: blur(3px);
+        background: rgba(0, 0, 0, 0.6);
+    }
 }

@@ -18,6 +18,8 @@ if (bodyClass.includes("bf2042")) {
 } else if (bodyClass.includes("bf4")) {
   logoImg.src = "./../media/img/battlefield4-logo.png";
   headerbg1.style.backgroundImage = "url('./../media/img/bf4/bf4header.webp')";
+} else if (bodyClass.includes("store")) {
+  
 }
 
 if (window.innerWidth >= 768) {
