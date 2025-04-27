@@ -2,6 +2,19 @@ function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("active");
 }
 
+const bodyClass = document.body.className;
+const logoImg = document.getElementById("logo-img");
+
+if (bodyClass.includes("bf2042")) {
+  logoImg.src = "./../media/img/battlefield2042-logo.svg";
+} else if (bodyClass.includes("bf5")) {
+  logoImg.src = "./../media/img/battlefield5-logo.png";
+} else if (bodyClass.includes("bf1")) {
+  logoImg.src = "./../media/img/battlefield1-logo.svg";
+} else if (bodyClass.includes("bf4")) {
+  logoImg.src = "./../media/img/battlefield4-logo.png";
+}
+
 if (window.innerWidth >= 768) {
   gsap.registerPlugin(ScrollTrigger);
 

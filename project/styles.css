@@ -33,28 +33,32 @@ body.theme-main {
 }
 
 body.theme-bf2042 {
-    background: url(./media/img/bf2042/background.jpg) no-repeat fixed;;
+    background: url(./media/img/bf2042/background.jpg) no-repeat fixed;
+    background-size: cover;
     --border-color: #26ffdf;
     --general-color: #26ffdf;
     --hover-color: #26ffdf;
 }
 
 body.theme-bf5 {
-    background: url(./media/img/bf5/background.png) no-repeat fixed;;
+    background: url(./media/img/bf5/background.png) no-repeat fixed;
+    background-size: cover;
     --border-color: #33aae5;
     --general-color: #33aae5;
     --hover-color: #33aae5;
 }
 
 body.theme-bf1 {
-    background: url(./media/img/bf1/background.png) no-repeat fixed;;
-    --border-color: #ff3c04;
-    --general-color: #ff3c04;
-    --hover-color: #ff3c04;
+    background: url(./media/img/bf1/background.jpg) no-repeat fixed;
+    background-size: cover;
+    --border-color: #8d2216;
+    --general-color: #8d2216;
+    --hover-color: #8d2216;
 }
 
 body.theme-bf4 {
-    background: url(./media/img/bf4/background.png) no-repeat fixed;;
+    background: url(./media/img/bf4/background.jpg) no-repeat fixed;
+    background-size: cover;
     --border-color: #5f7c82;
     --general-color: #5f7c82;
     --hover-color: #5f7c82;
