@@ -23,6 +23,11 @@
     src: url(./fonts/Purista\ Medium.otf) format('opentype');
 }
 
+@font-face {
+    font-family: 'bf-head';
+    src: url(./fonts/BFHead-Regular-2ae49698.ttf) format('opentype');
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -45,6 +50,8 @@ body.theme-main {
     --border-color: #ff3c04;
     --general-color: #ff3c04;
     --hover-color: #ff3c04;
+    --h1-font-family: bf-headline;
+    --p-font-family: bf-regular;
 }
 
 body.theme-bf2042 {
@@ -63,7 +70,7 @@ body.theme-bf5 {
     --border-color: #33aae5;
     --general-color: #33aae5;
     --hover-color: #33aae5;
-    --h1-font-family: bf-purista-bold;
+    --h1-font-family: bf-head;
     --p-font-family: bf-purista;
 }
 
@@ -73,7 +80,7 @@ body.theme-bf1 {
     --border-color: #8d2216;
     --general-color: #8d2216;
     --hover-color: #8d2216;
-    --h1-font-family: bf-purista-bold;
+    --h1-font-family: bf-head;
     --p-font-family: bf-purista;
 }
 

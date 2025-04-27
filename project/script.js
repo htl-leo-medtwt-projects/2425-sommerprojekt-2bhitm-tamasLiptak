@@ -4,15 +4,20 @@ function toggleMenu() {
 
 const bodyClass = document.body.className;
 const logoImg = document.getElementById("logo-img");
+const headerbg1 = document.getElementById("bfheaderbg1");
 
 if (bodyClass.includes("bf2042")) {
   logoImg.src = "./../media/img/battlefield2042-logo.svg";
+  headerbg1.style.backgroundImage = "url('./../media/img/bf2042/bf2042header.jpg')";
 } else if (bodyClass.includes("bf5")) {
   logoImg.src = "./../media/img/battlefield5-logo.png";
+  headerbg1.style.backgroundImage = "url('./../media/img/bf5/bf5header.png')";
 } else if (bodyClass.includes("bf1")) {
   logoImg.src = "./../media/img/battlefield1-logo.svg";
+  headerbg1.style.backgroundImage = "url('./../media/img/bf1/bf1header.jpg')";
 } else if (bodyClass.includes("bf4")) {
   logoImg.src = "./../media/img/battlefield4-logo.png";
+  headerbg1.style.backgroundImage = "url('./../media/img/bf4/bf4header.webp')";
 }
 
 if (window.innerWidth >= 768) {
@@ -103,8 +108,8 @@ if (window.innerWidth >= 768) {
     document.getElementById('datetime').textContent = formatted;
   }
 
-  // Animation for Battlefield 2042 Page
-  gsap.from(".jetheader", {
+  // Animation for Battlefield X Header
+  gsap.from(".imgheader", {
     x: -700,
     y: 700,
     duration: 1.5,

@@ -1,16 +1,71 @@
-.bf2042header {
+body.theme-main {
+    --border-color: #ff3c04;
+    --general-color: #ff3c04;
+    --hover-color: #ff3c04;
+    --h1-font-family: bf-headline;
+    --p-font-family: bf-regular;
+    font-family: bf-regular;
+}
+
+body.theme-bf2042 {
+    background: url(./media/img/bf2042/background.jpg) no-repeat fixed;
+    background-size: cover;
+    --border-color: #26ffdf;
+    --general-color: #26ffdf;
+    --hover-color: #26ffdf;
+    --h1-font-family: bf-modernista;
+    --p-font-family: bf-purista;
+    font-family: bf-purista;
+}
+
+body.theme-bf5 {
+    background: url(./media/img/bf5/background.png) no-repeat fixed;
+    background-size: cover;
+    --border-color: #33aae5;
+    --general-color: #33aae5;
+    --hover-color: #33aae5;
+    --h1-font-family: bf-head;
+    --p-font-family: bf-purista;
+    font-family: bf-purista;
+}
+
+body.theme-bf1 {
+    background: url(./media/img/bf1/background.jpg) no-repeat fixed;
+    background-size: cover;
+    --border-color: #8d2216;
+    --general-color: #8d2216;
+    --hover-color: #8d2216;
+    --h1-font-family: bf-head;
+    --p-font-family: bf-purista;
+    font-family: bf-purista;
+}
+
+body.theme-bf4 {
+    background: url(./media/img/bf4/background.jpg) no-repeat fixed;
+    background-size: cover;
+    --border-color: #5f7c82;
+    --general-color: #5f7c82;
+    --hover-color: #5f7c82;
+    --h1-font-family: bf-purista-bold;
+    --p-font-family: bf-purista;
+    font-family: bf-purista;
+}
+
+.bfheader {
     width: 100%;
     height: 100vh;
-    background: url(./../media/img/bf2042/bf2042header.jpg) no-repeat center center;
+    background-image: url(./../media/img/bf2042/bf2042header.jpg);
+    background: no-repeat center center;
     background-size: cover;
     position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 10% 2% 5% 2%;
+    z-index: 1;
 }
 
-.jetheader {
+.imgheader {
     width: 40%;
     filter: drop-shadow(10px 10px 25px rgb(0, 0, 0, 0.8)) drop-shadow(10px 10px 15px rgb(0, 0, 0, 0.8));
 
@@ -20,11 +75,13 @@
     width: 35%;
     height: 100%;
     position: relative;
-    background: url(./../media/img/purchasebackground.jpg) no-repeat center center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     background-size: cover;
-    font-family: bf-modernista;
     color: white;
     text-align: left;
+    z-index: 2;
 }
 
 .cardheader::before {
@@ -35,12 +92,12 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    z-index: 1;
+    z-index: 2;
 }
 
 .cardheader > * {
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .cardcontent {
@@ -60,7 +117,7 @@
     width: fit-content;
     margin: 8% 3%;
     text-align: center;
-    background-color: #26ffdf;
+    background-color: var(--general-color);
     color: black;
     font-size: 2.5rem;
     padding: 3% 6%;
