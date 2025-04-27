@@ -18,6 +18,7 @@ if (bodyClass.includes("bf2042")) {
 if (window.innerWidth >= 768) {
   gsap.registerPlugin(ScrollTrigger);
 
+  // Animation for Main Page
   gsap.from(".lockerweaponimg", {
     scrollTrigger: {
       trigger: ".lockerweaponimg",
@@ -88,7 +89,7 @@ if (window.innerWidth >= 768) {
     scale: 0.6,
     opacity: 0,
     duration: 1
-  })
+  });
 
   function updateDateTime() {
     const now = new Date();
@@ -100,9 +101,23 @@ if (window.innerWidth >= 768) {
     };
     const formatted = now.toLocaleString('en-US', options);
     document.getElementById('datetime').textContent = formatted;
-  }  
-}
+  }
 
+  // Animation for Battlefield 2042 Page
+  gsap.from(".jetheader", {
+    x: -700,
+    y: 700,
+    duration: 1.5,
+    delay: 0.5,
+    rotation: -45,
+  });
+
+  gsap.from(".cardheader", {
+    x: 1200,
+    duration: 1.5,
+    delay: 0.5
+  });
+}
 
 setInterval(updateDateTime, 1000);
 updateDateTime();

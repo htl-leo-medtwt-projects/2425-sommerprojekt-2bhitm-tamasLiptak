@@ -1,0 +1,100 @@
+.bf2042header {
+    width: 100%;
+    height: 100vh;
+    background: url(./../media/img/bf2042/bf2042header.jpg) no-repeat center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10% 2% 5% 2%;
+}
+
+.jetheader {
+    width: 40%;
+    filter: drop-shadow(10px 10px 25px rgb(0, 0, 0, 0.8)) drop-shadow(10px 10px 15px rgb(0, 0, 0, 0.8));
+
+}
+
+.cardheader {
+    width: 35%;
+    height: 100%;
+    position: relative;
+    background: url(./../media/img/purchasebackground.jpg) no-repeat center center;
+    background-size: cover;
+    font-family: bf-modernista;
+    color: white;
+    text-align: left;
+}
+
+.cardheader::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.cardheader > * {
+    position: relative;
+    z-index: 2;
+}
+
+.cardcontent {
+    padding: 5%;
+    font-size: 1.5em;
+}
+
+.cardcontent h1 {
+    font-size: 3rem;
+}
+
+.purchaseheader {
+    width: 100%;
+}
+
+.purchasebuttonheader {
+    width: fit-content;
+    margin: 8% 3%;
+    text-align: center;
+    background-color: #26ffdf;
+    color: black;
+    font-size: 2.5rem;
+    padding: 3% 6%;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.purchasebuttonheader img {
+    width: 46px;
+    transition: all 150ms ease-in-out;
+}
+
+.purchasebuttonheader:hover {
+    color: white;
+    transform: scale(0.95);
+}
+
+.purchasebuttonheader:hover img {
+    filter: invert(1);
+    
+}
+
+.availability {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.availability div {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}

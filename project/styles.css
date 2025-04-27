@@ -8,6 +8,21 @@
     src: url(./fonts/bf-headline-narrow-bold.ttf) format('opentype');
 }
 
+@font-face {
+    font-family: 'bf-modernista';
+    src: url(./fonts/BF_Modernista-Regular.ttf) format('opentype');
+}
+
+@font-face {
+    font-family: 'bf-purista-bold';
+    src: url(./fonts/Purista\ Bold.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'bf-purista';
+    src: url(./fonts/Purista\ Medium.otf) format('opentype');
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -38,6 +53,8 @@ body.theme-bf2042 {
     --border-color: #26ffdf;
     --general-color: #26ffdf;
     --hover-color: #26ffdf;
+    --h1-font-family: bf-modernista;
+    --p-font-family: bf-purista;
 }
 
 body.theme-bf5 {
@@ -46,6 +63,8 @@ body.theme-bf5 {
     --border-color: #33aae5;
     --general-color: #33aae5;
     --hover-color: #33aae5;
+    --h1-font-family: bf-purista-bold;
+    --p-font-family: bf-purista;
 }
 
 body.theme-bf1 {
@@ -54,6 +73,8 @@ body.theme-bf1 {
     --border-color: #8d2216;
     --general-color: #8d2216;
     --hover-color: #8d2216;
+    --h1-font-family: bf-purista-bold;
+    --p-font-family: bf-purista;
 }
 
 body.theme-bf4 {
@@ -62,6 +83,8 @@ body.theme-bf4 {
     --border-color: #5f7c82;
     --general-color: #5f7c82;
     --hover-color: #5f7c82;
+    --h1-font-family: bf-purista-bold;
+    --p-font-family: bf-purista;
 }
 
 img {
@@ -75,11 +98,14 @@ a {
 }
 
 h1 {
-    font-family: bf-headline;
+    font-family: var(--h1-font-family);
     font-size: 4rem;
     color: white;
-    text-align: center;
     letter-spacing: 2px;
+}
+
+p {
+    font-family: var(--p-font-family);
 }
 
 .navbar {
