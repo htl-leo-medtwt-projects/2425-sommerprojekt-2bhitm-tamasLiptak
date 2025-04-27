@@ -124,6 +124,26 @@ if (window.innerWidth >= 768) {
     duration: 1.5,
     delay: 0.5
   });
+
+  // Animation for posters
+  const titles = gsap.utils.toArray(".storecard");
+  titles.forEach((preview, i) => {
+    gsap.from(preview, {
+      scrollTrigger: {
+        toggleActions: "play none none none",
+        scroller: ".gamepreview",
+        trigger: preview,
+        start: "top 60%",
+        end: "top 50%",
+        scrub: 1,
+        once: true
+      },
+      x: -1400,
+      duration: 1.5,
+      delay: i * 0.2
+    });
+  }
+)
 }
 
 setInterval(updateDateTime, 1000);
