@@ -1,0 +1,21 @@
+body.theme-main {
+    --border-color: #ff3c04;
+    --general-color: #ff3c04;
+    --hover-color: #ff3c04;
+    --h1-font-family: bf-headline;
+    --p-font-family: bf-regular;
+}
+
+body {
+    background: url(./media/img/labs/background.jpg) no-repeat fixed;
+    background-size: cover;
+}
+
+.labsheader {
+    width: 100%;
+    height: 100vh;
+}
+
+.labsheaderlogo {
+    
+}

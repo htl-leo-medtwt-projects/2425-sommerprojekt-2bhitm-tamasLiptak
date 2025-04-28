@@ -8,6 +8,8 @@ body.theme-store {
     --p-font-family: bf-regular;
 }
 
+/* #region Game Previews*/
+
 h2 {
     font-family: var(--h1-font-family);
     font-size: 2.5rem;
@@ -80,6 +82,10 @@ h2 {
 img {
     width: 100%;
 }
+
+/* #endregion */
+
+/* #region Order Preview*/
 
 .orderpreview {
     width: 100%;
@@ -193,6 +199,8 @@ img {
 .placeorder:hover {
     border: 3px solid var(--hover-color);
 }
+
+/* #endregion */
 
 @keyframes blurFadeIn {
     from {

@@ -1,3 +1,5 @@
+/* #region Collection of themes*/
+
 body.theme-main {
     --border-color: #ff3c04;
     --general-color: #ff3c04;
@@ -50,6 +52,9 @@ body.theme-bf4 {
     --p-font-family: bf-purista;
     font-family: bf-purista;
 }
+
+/* #endregion */
+
 
 .bfheader {
     width: 100%;
