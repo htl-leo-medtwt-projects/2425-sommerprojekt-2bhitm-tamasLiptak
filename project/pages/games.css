@@ -75,29 +75,13 @@ body.theme-bf4 {
     width: 35%;
     height: 100%;
     position: relative;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     background-size: cover;
     color: white;
     text-align: left;
     z-index: 2;
-}
-
-.cardheader::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 2;
-}
-
-.cardheader > * {
-    position: relative;
-    z-index: 3;
 }
 
 .cardcontent {
@@ -154,4 +138,62 @@ body.theme-bf4 {
     display: flex;
     align-items: center;
     gap: 2px;
+}
+
+@media (max-width: 1250px) {
+    .cardheader {
+        width: 45%;
+    }
+
+    .cardcontent h1 {
+        font-size: 2.2rem;
+    }
+
+    .cardcontent {
+        font-size: 1.5rem;
+    }
+    
+    .purchasebuttonheader {
+        font-size: 2rem;
+    }
+
+    .availability {
+        font-size: 1.2rem;
+    }
+    
+}
+
+@media (max-width: 1000px) {
+    .bfheader {
+        height: auto;
+        flex-direction: column;
+        padding: 10% 2%;
+    }
+
+    .imgheader {
+        width: 80%;
+        margin: 3% 0;
+    }
+
+    .cardheader {
+        width: 100%;
+    }
+
+    .cardcontent h1 {
+        font-size: 1.8rem;
+    }
+
+    .cardcontent {
+        font-size: 1rem;
+    }
+    
+    .purchasebuttonheader {
+        font-size: 1.3rem;
+        padding: 2% 4%;
+    }
+
+    .availability {
+        font-size: 1rem;
+    }
+    
 }

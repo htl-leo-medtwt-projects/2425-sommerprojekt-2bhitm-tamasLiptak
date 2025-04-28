@@ -2,6 +2,14 @@ function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("active");
 }
 
+function signup() {
+  document.querySelector(".submitButton").innerHTML = "THANK YOU!";
+  document.querySelector(".submitButton").style.animation = "thxPop 0.3s ease-in-out forwards";
+  document.querySelector(".submitButton").style.pointerEvents = "none";
+  document.getElementById("signupname").value = "";
+  document.getElementById("signupemail").value = "";
+}
+
 const bodyClass = document.body.className;
 const logoImg = document.getElementById("logo-img");
 const headerbg1 = document.getElementById("bfheaderbg1");

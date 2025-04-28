@@ -444,9 +444,28 @@ form {
 }
 
 .submitButton:hover {
-    background-color: #ff3c04;
+    background-color: var(--general-color);
     color: white;
-    border: 4px solid #ff3c04;
+    border: 4px solid var(--border-color);
+}
+
+@keyframes thxPop {
+    0% {
+        transform: scale(1);
+        background-color: var(--general-color);
+        color: white;
+    }
+
+    50% {
+        transform: scale(1.1);
+        background-color: #ff673d;
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: var(--general-color);
+        color: white;
+    }
 }
 
 footer {
