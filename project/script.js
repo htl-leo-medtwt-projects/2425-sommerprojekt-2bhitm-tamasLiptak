@@ -157,7 +157,6 @@ if (window.innerWidth >= 768) {
 setInterval(updateDateTime, 1000);
 updateDateTime();
 
-// --- SETUP ---
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function saveCart() {
@@ -172,7 +171,6 @@ function addToCart(game, button) {
         saveCart();
         renderCart();
     } else {
-        // Instead of alert, animate the button
         button.classList.add('orderbuttonshake');
         console.log('item already in cart');
 
@@ -211,16 +209,16 @@ function renderCart() {
         ordercard.appendChild(item);
     });
 
-    // Setup "REMOVE" buttons
     document.querySelectorAll('.removeOrderButton').forEach(button => {
         button.addEventListener('click', (e) => {
             const title = e.target.getAttribute('data-title');
             removeFromCart(title);
         });
     });
+
+    calculateTotal();
 }
 
-// --- SETUP ADD TO CART BUTTONS ---
 document.querySelectorAll('.addtocart').forEach(button => {
     button.addEventListener('click', () => {
         const storecard = button.closest('.storecard');
@@ -231,7 +229,24 @@ document.querySelectorAll('.addtocart').forEach(button => {
         const game = { title, price, poster };
         addToCart(game, button);
     });
-});
+}); 
 
-// --- Initial render on page load ---
+function calculateTotal() {
+  let total = 0;
+  cart.forEach(item => {
+      // Remove the € and convert to number
+      const priceNumber = parseFloat(item.price.replace('€', '').replace(',', '.'));
+      total += priceNumber;
+      console.log(priceNumber);
+      console.log(total);
+  });
+
+  // Update the totalprice element
+  const totalPriceElement = document.querySelector('.totalprice h2');
+  if (totalPriceElement) {
+      totalPriceElement.innerText = total.toFixed(2).replace('.', ',') + '€';
+      console.log(totalPriceElement.innerText);
+  }
+}
+
 renderCart();

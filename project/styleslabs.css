@@ -14,8 +14,13 @@ body {
 .labsheader {
     width: 100%;
     height: 100vh;
+    position: relative;
 }
 
 .labsheaderlogo {
-    
+    width: 20%;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
