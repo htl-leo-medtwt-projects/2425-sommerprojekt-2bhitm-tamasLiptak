@@ -34,9 +34,11 @@
             </div>
         </nav>
 
+                        <!-- problem with adding multiple items -> one pager becomes scrollable -->
+
         <div class="storescreen">
             <div class="gamepreview">
-                <div class="storecard">
+                <div class="storecard" id="slidein">
                     <div class="poster">
                         <img src="./../media/img/store/bf2024poster.jpeg"
                             alt="bf2024poster">
@@ -51,7 +53,7 @@
                             and dive into new game modes like Battlefield™
                             Portal and Hazard Zone. The future of combat is
                             here.</p><br>
-                            <h2>59,99€</h2>
+                        <h2>59,99€</h2>
                         <div class="addtocart">
                             ADD TO CART
                         </div>
@@ -71,7 +73,7 @@
                             and more. Team up with friends in modes like Grand
                             Operations or War Stories, and carve your path in
                             history.</p><br>
-                            <h2>49,99€</h2>
+                        <h2>49,99€</h2>
                         <div class="addtocart">
                             ADD TO CART
                         </div>
@@ -91,7 +93,7 @@
                             fight in epic multiplayer matches or take on
                             immersive War Stories that highlight untold
                             histories.</p><br>
-                            <h2>39,99€</h2>
+                        <h2>39,99€</h2>
                         <div class="addtocart">
                             ADD TO CART
                         </div>
@@ -111,16 +113,32 @@
                             across expansive maps, featuring dynamic weather and
                             thrilling naval warfare. The war is evolving — are
                             you ready?</p><br>
-                            <h2>39,99€</h2>
+                        <h2>39,99€</h2>
                         <div class="addtocart">
                             ADD TO CART
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="orderpreview">
 
+            <div class="orderpreview">
+                <div class="ordersummary">
+                    <h1>Order Summary</h1>
+                    <div class="ordercard">
+                        <!-- dynamic content -->
+                    </div>
+                    <div class="orderfinal">
+                        <div class="totalpricecontainer">
+                            <div>Order Total</div>
+                            <div class="totalprice"><h2>XX,XX€</h2></div>
+                        </div>
+                        <input type="text" class="referral" placeholder="Creator Code">
+                        <div class="placeorder">PLACE ORDER</div>
+                    </div>
+                </div>
+                
             </div>
+
         </div>
 
         <script

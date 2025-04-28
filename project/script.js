@@ -148,3 +148,82 @@ if (window.innerWidth >= 768) {
 
 setInterval(updateDateTime, 1000);
 updateDateTime();
+
+// --- SETUP ---
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function addToCart(game, button) {
+    const exists = cart.some(item => item.title === game.title);
+
+    if (!exists) {
+        cart.push(game);
+        saveCart();
+        renderCart();
+    } else {
+        // Instead of alert, animate the button
+        button.classList.add('orderbuttonshake');
+        console.log('item already in cart');
+
+        setTimeout(() => {
+            button.classList.remove('orderbuttonshake');
+        }, 500);
+    }
+}
+
+function removeFromCart(title) {
+    cart = cart.filter(item => item.title !== title);
+    saveCart();
+    renderCart();
+}
+
+function renderCart() {
+    const ordercard = document.querySelector('.ordercard');
+    ordercard.innerHTML = '';
+
+    cart.forEach(game => {
+        const item = document.createElement('div');
+        item.classList.add('orderitem');
+        item.style.position = 'relative';
+
+        item.innerHTML = `
+            <div class="orderposter">
+                <img src="${game.poster}" alt="${game.title}">
+            </div>
+            <div class="ordercontent">
+                <h1>${game.title}</h1>
+                <h2>${game.price}</h2>
+                <div class="removeOrderButton" data-title="${game.title}">REMOVE</div>
+            </div>
+        `;
+
+        ordercard.appendChild(item);
+    });
+
+    // Setup "REMOVE" buttons
+    document.querySelectorAll('.removeOrderButton').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const title = e.target.getAttribute('data-title');
+            removeFromCart(title);
+        });
+    });
+}
+
+// --- SETUP ADD TO CART BUTTONS ---
+document.querySelectorAll('.addtocart').forEach(button => {
+    button.addEventListener('click', () => {
+        const storecard = button.closest('.storecard');
+        const title = storecard.querySelector('h1').innerText;
+        const price = storecard.querySelector('h2').innerText;
+        const poster = storecard.querySelector('.poster img').src;
+
+        const game = { title, price, poster };
+        addToCart(game, button);
+    });
+});
+
+// --- Initial render on page load ---
+renderCart();
