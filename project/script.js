@@ -29,6 +29,20 @@ if (bodyClass.includes("bf2042")) {
 }
 
 if (window.innerWidth >= 768) {
+  function updateDateTime() {
+    const now = new Date();
+    const options = {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    };
+    const formatted = now.toLocaleString('en-US', options);
+    document.getElementById('datetime').textContent = formatted;
+  }
+  setInterval(updateDateTime, 1000);
+  updateDateTime();
+
   gsap.registerPlugin(ScrollTrigger);
 
   // Animation for Main Page
@@ -104,18 +118,6 @@ if (window.innerWidth >= 768) {
     duration: 1
   });
 
-  function updateDateTime() {
-    const now = new Date();
-    const options = {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false
-    };
-    const formatted = now.toLocaleString('en-US', options);
-    document.getElementById('datetime').textContent = formatted;
-  }
-
   // Animation for Battlefield X Header
   gsap.from(".imgheader", {
     x: -700,
@@ -152,8 +154,7 @@ if (window.innerWidth >= 768) {
 )
 }
 
-setInterval(updateDateTime, 1000);
-updateDateTime();
+
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
