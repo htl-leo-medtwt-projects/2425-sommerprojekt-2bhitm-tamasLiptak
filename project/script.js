@@ -26,8 +26,6 @@ if (bodyClass.includes("bf2042")) {
 } else if (bodyClass.includes("bf4")) {
   logoImg.src = "./../media/img/battlefield4-logo.png";
   headerbg1.style.backgroundImage = "url('./../media/img/bf4/bf4header.webp')";
-} else if (bodyClass.includes("store")) {
-  
 }
 
 if (window.innerWidth >= 768) {
@@ -171,12 +169,12 @@ function addToCart(game, button) {
         saveCart();
         renderCart();
     } else {
-        button.classList.add('orderbuttonshake');
-        console.log('item already in cart');
-
-        setTimeout(() => {
-            button.classList.remove('orderbuttonshake');
-        }, 500);
+        if (button) {
+            button.classList.add('orderbuttonshake');
+            setTimeout(() => {
+                button.classList.remove('orderbuttonshake');
+            }, 500);
+        }
     }
 }
 
@@ -188,7 +186,9 @@ function removeFromCart(title) {
 
 function renderCart() {
     const ordercard = document.querySelector('.ordercard');
-    ordercard.innerHTML = '';
+    if (!ordercard) return;
+
+    ordercard.innerHTML = "";
 
     cart.forEach(game => {
         const item = document.createElement('div');
@@ -229,24 +229,37 @@ document.querySelectorAll('.addtocart').forEach(button => {
         const game = { title, price, poster };
         addToCart(game, button);
     });
-}); 
+});
+
+document.querySelectorAll('.purchasebuttonheader').forEach(button => {
+    button.addEventListener('click', () => {
+        const title = button.dataset.title;
+        const price = button.dataset.price;
+        const poster = button.dataset.poster;
+
+        const game = { title, price, poster };
+        addToCart(game, button);
+
+        button.innerHTML = 'REDIRECTING';
+        button.classList.add('purchased');
+
+        setTimeout(() => {
+            window.location.href = "../pages/store.html";
+        }, 1500);
+    });
+});
 
 function calculateTotal() {
-  let total = 0;
-  cart.forEach(item => {
-      // Remove the € and convert to number
-      const priceNumber = parseFloat(item.price.replace('€', '').replace(',', '.'));
-      total += priceNumber;
-      console.log(priceNumber);
-      console.log(total);
-  });
+    let total = 0;
+    cart.forEach(item => {
+        const priceNumber = parseFloat(item.price.replace('€', '').replace(',', '.'));
+        total += priceNumber;
+    });
 
-  // Update the totalprice element
-  const totalPriceElement = document.querySelector('.totalprice h2');
-  if (totalPriceElement) {
-      totalPriceElement.innerText = total.toFixed(2).replace('.', ',') + '€';
-      console.log(totalPriceElement.innerText);
-  }
+    const totalPriceElement = document.querySelector('.totalprice h2');
+    if (totalPriceElement) {
+        totalPriceElement.innerText = total.toFixed(2).replace('.', ',') + '€';
+    }
 }
 
 renderCart();

@@ -42,12 +42,24 @@ html {
     scroll-snap-type: y proximity;
     scroll-behavior: smooth;
     scroll-padding-top: 9.7%;
+    background-color: #000;
 }
 
 body {
     background: url(./media/img/background.png) no-repeat fixed;
     background-size: cover;
     overflow-x: hidden;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 /* #region Collection of themes*/
@@ -296,7 +308,7 @@ p {
 
 /* #endregion */
 
-/* Header Styling - index.html */
+/* #region Header Styling - index.html */
 
 header {
     width: 100%;
@@ -333,6 +345,8 @@ video {
     position: absolute;
     animation: headerintroFadeIn 2.5s ease-in
 }
+
+/* #endregion */
 
 /* #region Homepage Styling - index.html */
 
@@ -383,7 +397,7 @@ video {
 }
 
 .homepageImg {
-    background: url(./media/img/weaponbackground.jpg) no-repeat center center;
+    background: none no-repeat center center;
     background-size: cover;
     position: relative;
 }
@@ -696,6 +710,14 @@ select {
 }
 
 /* #region Responsive Media*/
+
+@media (max-width: 1250px) {
+    #datetime {
+        position: relative;
+        left: auto;
+        transform: none;
+    }
+}
 
 @media (max-width: 768px) {
     .logo {
