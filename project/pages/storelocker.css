@@ -8,6 +8,21 @@ body.theme-store {
     --p-font-family: bf-regular;
 }
 
+body.theme-locker {
+    background: url(./../media/img/locker/background.jpg) no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    --border-color: #ff3c04;
+    --general-color: #ff3c04;
+    --hover-color: #ff3c04;
+    --h1-font-family: bf-headline;
+    --p-font-family: bf-regular;
+}
+
+/* #region Store*/
+
 /* #region Game Previews*/
 
 h2 {
@@ -240,6 +255,21 @@ img {
     animation: orderButtonShake 0.5s;
 }
 
+/* #endregion */
+
+/* #region Locker */
+.lockercontainer {
+    width: 100%;
+    height: 100vh;
+    animation: blurFadeIn 1.5s 500ms ease-in-out forwards;
+}
+
+
+
+/* #endregion */
+
+/* #region Media Queries */
+
 @media (max-width: 768px) {
     .storescreen {
         height: auto;
@@ -268,3 +298,5 @@ img {
 ::-webkit-scrollbar-thumb {
 	background-color: var(--general-color);
 }
+
+/* #endregion */
