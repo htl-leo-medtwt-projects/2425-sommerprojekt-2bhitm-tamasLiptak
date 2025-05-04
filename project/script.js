@@ -293,7 +293,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const key = box.dataset.label.toLowerCase();
       const saved = localStorage.getItem(`locker_${key}`);
       if (saved) {
-          box.setAttribute('data-active', `Equipped: ${saved}`);
+          box.setAttribute('data-active', `${saved}`);
           insertImage(box, saved);
       }
   });
@@ -314,7 +314,7 @@ boxes.forEach(box => {
           const selected = item.textContent.trim();
           const key = box.dataset.label.toLowerCase();
           
-          box.setAttribute('data-active', `Equipped: ${selected}`);
+          box.setAttribute('data-active', `${selected}`);
           localStorage.setItem(`locker_${key}`, selected);
           insertImage(box, selected);
           box.classList.remove('open');

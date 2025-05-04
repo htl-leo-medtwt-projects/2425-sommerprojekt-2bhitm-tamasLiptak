@@ -314,6 +314,7 @@ img {
     font-size: 2rem;
     text-transform: uppercase;
     border-bottom: 3px solid white;
+    transition: all 0.2s ease-in-out;
 }
 
 .equipmentcontainer > div::after {
@@ -327,6 +328,7 @@ img {
     font-family: bf-headline;
     font-size: 2rem;
     border-top: 3px solid white;
+    transition: all 0.2s ease-in-out;
 }
 
 .equipmentcontainer img {
@@ -350,6 +352,17 @@ img {
 .equipmentcontainer > div:hover {
     transform: scale(1.03);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    border: 3px solid var(--hover-color);
+}
+
+.equipmentcontainer > div:hover::before {
+    color: var(--hover-color);
+    border-bottom: 3px solid var(--hover-color);
+}
+
+.equipmentcontainer > div:hover::after {
+    color: var(--hover-color);
+    border-top: 3px solid var(--hover-color);
 }
 
 .equipmentcontainer > div:hover img {
