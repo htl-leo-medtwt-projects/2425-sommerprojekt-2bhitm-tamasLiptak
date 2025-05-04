@@ -153,7 +153,7 @@ if (window.innerWidth >= 768) {
       delay: i * 0.2
     });
   }
-)
+  )
 }
 
 /* Store */
@@ -161,44 +161,44 @@ if (window.innerWidth >= 768) {
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function saveCart() {
-    localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 function addToCart(game, button) {
-    const exists = cart.some(item => item.title === game.title);
+  const exists = cart.some(item => item.title === game.title);
 
-    if (!exists) {
-        cart.push(game);
-        saveCart();
-        renderCart();
-    } else {
-        if (button) {
-            button.classList.add('orderbuttonshake');
-            setTimeout(() => {
-                button.classList.remove('orderbuttonshake');
-            }, 500);
-        }
+  if (!exists) {
+    cart.push(game);
+    saveCart();
+    renderCart();
+  } else {
+    if (button) {
+      button.classList.add('orderbuttonshake');
+      setTimeout(() => {
+        button.classList.remove('orderbuttonshake');
+      }, 500);
     }
+  }
 }
 
 function removeFromCart(title) {
-    cart = cart.filter(item => item.title !== title);
-    saveCart();
-    renderCart();
+  cart = cart.filter(item => item.title !== title);
+  saveCart();
+  renderCart();
 }
 
 function renderCart() {
-    const ordercard = document.querySelector('.ordercard');
-    if (!ordercard) return;
+  const ordercard = document.querySelector('.ordercard');
+  if (!ordercard) return;
 
-    ordercard.innerHTML = "";
+  ordercard.innerHTML = "";
 
-    cart.forEach(game => {
-        const item = document.createElement('div');
-        item.classList.add('orderitem');
-        item.style.position = 'relative';
+  cart.forEach(game => {
+    const item = document.createElement('div');
+    item.classList.add('orderitem');
+    item.style.position = 'relative';
 
-        item.innerHTML = `
+    item.innerHTML = `
             <div class="orderposter">
                 <img src="${game.poster}" alt="${game.title}">
             </div>
@@ -209,60 +209,60 @@ function renderCart() {
             </div>
         `;
 
-        ordercard.appendChild(item);
-    });
+    ordercard.appendChild(item);
+  });
 
-    document.querySelectorAll('.removeOrderButton').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const title = e.target.getAttribute('data-title');
-            removeFromCart(title);
-        });
+  document.querySelectorAll('.removeOrderButton').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const title = e.target.getAttribute('data-title');
+      removeFromCart(title);
     });
+  });
 
-    calculateTotal();
+  calculateTotal();
 }
 
 document.querySelectorAll('.addtocart').forEach(button => {
-    button.addEventListener('click', () => {
-        const storecard = button.closest('.storecard');
-        const title = storecard.querySelector('h1').innerText;
-        const price = storecard.querySelector('h2').innerText;
-        const poster = storecard.querySelector('.poster img').src;
+  button.addEventListener('click', () => {
+    const storecard = button.closest('.storecard');
+    const title = storecard.querySelector('h1').innerText;
+    const price = storecard.querySelector('h2').innerText;
+    const poster = storecard.querySelector('.poster img').src;
 
-        const game = { title, price, poster };
-        addToCart(game, button);
-    });
+    const game = { title, price, poster };
+    addToCart(game, button);
+  });
 });
 
 document.querySelectorAll('.purchasebuttonheader').forEach(button => {
-    button.addEventListener('click', () => {
-        const title = button.dataset.title;
-        const price = button.dataset.price;
-        const poster = button.dataset.poster;
+  button.addEventListener('click', () => {
+    const title = button.dataset.title;
+    const price = button.dataset.price;
+    const poster = button.dataset.poster;
 
-        const game = { title, price, poster };
-        addToCart(game, button);
+    const game = { title, price, poster };
+    addToCart(game, button);
 
-        button.innerHTML = 'REDIRECTING';
-        button.classList.add('purchased');
+    button.innerHTML = 'REDIRECTING';
+    button.classList.add('purchased');
 
-        setTimeout(() => {
-            window.location.href = "../pages/store.html";
-        }, 1500);
-    });
+    setTimeout(() => {
+      window.location.href = "../pages/store.html";
+    }, 1500);
+  });
 });
 
 function calculateTotal() {
-    let total = 0;
-    cart.forEach(item => {
-        const priceNumber = parseFloat(item.price.replace('€', '').replace(',', '.'));
-        total += priceNumber;
-    });
+  let total = 0;
+  cart.forEach(item => {
+    const priceNumber = parseFloat(item.price.replace('€', '').replace(',', '.'));
+    total += priceNumber;
+  });
 
-    const totalPriceElement = document.querySelector('.totalprice h2');
-    if (totalPriceElement) {
-        totalPriceElement.innerText = total.toFixed(2).replace('.', ',') + '€';
-    }
+  const totalPriceElement = document.querySelector('.totalprice h2');
+  if (totalPriceElement) {
+    totalPriceElement.innerText = total.toFixed(2).replace('.', ',') + '€';
+  }
 }
 
 renderCart();
@@ -294,35 +294,35 @@ const boxes = document.querySelectorAll('.equipmentcontainer > div');
 
 window.addEventListener('DOMContentLoaded', () => {
   boxes.forEach(box => {
-      const key = box.dataset.label.toLowerCase();
-      const saved = localStorage.getItem(`locker_${key}`);
-      if (saved) {
-          box.setAttribute('data-active', `${saved}`);
-          insertImage(box, saved);
-      }
+    const key = box.dataset.label.toLowerCase();
+    const saved = localStorage.getItem(`locker_${key}`);
+    if (saved) {
+      box.setAttribute('data-active', `${saved}`);
+      insertImage(box, saved);
+    }
   });
 });
 
 boxes.forEach(box => {
   box.addEventListener('click', (e) => {
-      boxes.forEach(b => {
-          if (b !== box) b.classList.remove('open');
-      });
-      box.classList.toggle('open');
-      e.stopPropagation();
+    boxes.forEach(b => {
+      if (b !== box) b.classList.remove('open');
+    });
+    box.classList.toggle('open');
+    e.stopPropagation();
   });
 
   box.querySelectorAll('.dropdown-menu > div').forEach(item => {
-      item.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const selected = item.textContent.trim();
-          const key = box.dataset.label.toLowerCase();
-          
-          box.setAttribute('data-active', `${selected}`);
-          localStorage.setItem(`locker_${key}`, selected);
-          insertImage(box, selected);
-          box.classList.remove('open');
-      });
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const selected = item.textContent.trim();
+      const key = box.dataset.label.toLowerCase();
+
+      box.setAttribute('data-active', `${selected}`);
+      localStorage.setItem(`locker_${key}`, selected);
+      insertImage(box, selected);
+      box.classList.remove('open');
+    });
   });
 });
 
@@ -332,20 +332,20 @@ function insertImage(box, selectedItem) {
   if (!src) return;
 
   if (!img) {
-      img = document.createElement('img');
-      box.appendChild(img);
+    img = document.createElement('img');
+    box.appendChild(img);
   }
 
   img.classList.remove('loaded');
   img.src = src;
 
   img.onload = () => {
-      img.classList.add('loaded');
+    img.classList.add('loaded');
   };
 }
 
 document.addEventListener('click', () => {
-    boxes.forEach(b => b.classList.remove('open'));
+  boxes.forEach(b => b.classList.remove('open'));
 });
 
 const previewImgContainer = document.querySelector('.previewimg');
@@ -353,47 +353,107 @@ const previewBox = document.querySelector('.preview');
 const previewDesc = document.querySelector('.previewdescription');
 
 boxes.forEach(box => {
-    box.addEventListener('mouseenter', () => {
-        const img = box.querySelector('img');
-        const activeLabel = box.getAttribute('data-active')?.replace('Equipped: ', '') || '';
+  box.addEventListener('mouseenter', () => {
+    const img = box.querySelector('img');
+    const activeLabel = box.getAttribute('data-active')?.replace('Equipped: ', '') || '';
 
-        if (!img || !img.src) return;
+    if (!img || !img.src) return;
 
-        previewImgContainer.innerHTML = '';
+    previewImgContainer.innerHTML = '';
 
-        const previewImg = document.createElement('img');
-        previewImg.src = img.src;
+    const previewImg = document.createElement('img');
+    previewImg.src = img.src;
 
-        previewImg.onload = () => {
-            previewImg.classList.add('visible');
-        };
+    previewImg.onload = () => {
+      previewImg.classList.add('visible');
+    };
 
-        previewImgContainer.appendChild(previewImg);
+    previewImgContainer.appendChild(previewImg);
 
-        previewBox.setAttribute('data-label', activeLabel);
+    previewBox.setAttribute('data-label', activeLabel);
 
-        previewDesc.textContent = activeLabel;
-    });
+    previewDesc.textContent = activeLabel;
+
+    const itemName = box.getAttribute('data-active')?.replace('Equipped: ', '').trim();
+    if (itemName) updatePreview(itemName);
+  });
 });
 
 const dropdownItems = document.querySelectorAll('.dropdown-menu > div');
 
 dropdownItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        const name = item.textContent.trim();
-        const imagePath = equipmentMap[name];
+  item.addEventListener('mouseenter', () => {
+    const name = item.textContent.trim();
+    const imagePath = equipmentMap[name];
 
-        if (!imagePath) return;
+    if (!imagePath) return;
 
-        previewImgContainer.innerHTML = '';
-        const previewImg = document.createElement('img');
-        previewImg.src = imagePath;
-        previewImg.onload = () => {
-            previewImg.classList.add('visible');
-        };
-        previewImgContainer.appendChild(previewImg);
+    previewImgContainer.innerHTML = '';
+    const previewImg = document.createElement('img');
+    previewImg.src = imagePath;
+    previewImg.onload = () => {
+      previewImg.classList.add('visible');
+    };
+    previewImgContainer.appendChild(previewImg);
 
-        previewBox.setAttribute('data-label', name);
-        previewDesc.textContent = name;
-    });
+    previewBox.setAttribute('data-label', name);
+    previewDesc.textContent = name;
+
+    const itemName = item.textContent.trim();
+    updatePreview(itemName);
+  });
 });
+
+let itemData = {};
+
+fetch('./../data/locker.json')
+  .then(response => response.json())
+  .then(data => {
+    itemData = data;
+  })
+  .catch(error => console.error('Failed to load item data:', error));
+
+const previewDescription = document.querySelector('.previewdescription');
+
+const STAT_MAX = {
+  damage: 100,
+  fireRate: 1200,
+  accuracy: 100,
+  range: 100,
+  mobility: 100,
+  armor: 100,
+  speed: 100,
+  utility: 100
+};
+
+function normalizeStat(value, type) {
+  const max = STAT_MAX[type] || 100;
+  return Math.min(100, (value / max) * 100);
+}
+
+function updatePreview(itemName) {
+  if (!itemData[itemName]) return;
+
+  const item = itemData[itemName];
+  const stats = item.stats;
+
+  const statsHtml = Object.entries(stats)
+    .map(([key, val]) => {
+      const percentage = normalizeStat(val, key);
+      return `
+              <div class="stat-line">
+                  <span class="stat-name">${key}</span>
+                  <div class="stat-bar-container">
+                      <div class="stat-bar" style="width: ${percentage}%"></div>
+                  </div>
+              </div>
+          `;
+    })
+    .join('');
+
+  previewDescription.innerHTML = `
+        <h2>${itemName} <small>(${item.type})</small></h2>
+        <p>${item.description}</p>
+        <div class="stats">${statsHtml}</div>
+    `;
+}
