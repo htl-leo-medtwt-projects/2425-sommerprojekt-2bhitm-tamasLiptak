@@ -28,6 +28,8 @@ if (bodyClass.includes("bf2042")) {
   headerbg1.style.backgroundImage = "url('./../media/img/bf4/bf4header.webp')";
 }
 
+/* GSAP */
+
 if (window.innerWidth >= 768) {
   function updateDateTime() {
     const now = new Date();
@@ -154,7 +156,7 @@ if (window.innerWidth >= 768) {
 )
 }
 
-
+/* Store */
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -265,6 +267,8 @@ function calculateTotal() {
 
 renderCart();
 
+/* Locker */
+
 const equipmentMap = {
   // Outfit
   'Assault': './../media/img/locker/outfits/assault.png',
@@ -342,4 +346,54 @@ function insertImage(box, selectedItem) {
 
 document.addEventListener('click', () => {
     boxes.forEach(b => b.classList.remove('open'));
+});
+
+const previewImgContainer = document.querySelector('.previewimg');
+const previewBox = document.querySelector('.preview');
+const previewDesc = document.querySelector('.previewdescription');
+
+boxes.forEach(box => {
+    box.addEventListener('mouseenter', () => {
+        const img = box.querySelector('img');
+        const activeLabel = box.getAttribute('data-active')?.replace('Equipped: ', '') || '';
+
+        if (!img || !img.src) return;
+
+        previewImgContainer.innerHTML = '';
+
+        const previewImg = document.createElement('img');
+        previewImg.src = img.src;
+
+        previewImg.onload = () => {
+            previewImg.classList.add('visible');
+        };
+
+        previewImgContainer.appendChild(previewImg);
+
+        previewBox.setAttribute('data-label', activeLabel);
+
+        previewDesc.textContent = activeLabel;
+    });
+});
+
+const dropdownItems = document.querySelectorAll('.dropdown-menu > div');
+
+dropdownItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        const name = item.textContent.trim();
+        const imagePath = equipmentMap[name];
+
+        if (!imagePath) return;
+
+        previewImgContainer.innerHTML = '';
+        const previewImg = document.createElement('img');
+        previewImg.src = imagePath;
+        previewImg.onload = () => {
+            previewImg.classList.add('visible');
+        };
+        previewImgContainer.appendChild(previewImg);
+
+        previewBox.setAttribute('data-label', name);
+        previewDesc.textContent = name;
+    });
 });
