@@ -264,3 +264,82 @@ function calculateTotal() {
 }
 
 renderCart();
+
+const equipmentMap = {
+  // Outfit
+  'Assault': './../media/img/locker/outfits/assault.png',
+  'Engineer': './../media/img/locker/outfits/engineer.png',
+  'Support': './../media/img/locker/outfits/support.png',
+  'Recon': './../media/img/locker/outfits/recon.png',
+
+  // Primary 
+  'AEK-971': './../media/img/locker/primary/aek-971.png',
+  'P90': './../media/img/locker/primary/p90.png',
+  'M249': './../media/img/locker/primary/m249.png',
+  'SAIGA-12': './../media/img/locker/primary/saiga-12.png',
+  'M98B': './../media/img/locker/primary/m98b.png',
+
+  // Secondary
+  'G18': './../media/img/locker/secondary/g18.png',
+  'M9': './../media/img/locker/secondary/m9.png',
+  'M1911': './../media/img/locker/secondary/m1911.png',
+  'TAURUS 44': './../media/img/locker/secondary/taurus44.png'
+};
+
+const boxes = document.querySelectorAll('.equipmentcontainer > div');
+
+window.addEventListener('DOMContentLoaded', () => {
+  boxes.forEach(box => {
+      const key = box.dataset.label.toLowerCase();
+      const saved = localStorage.getItem(`locker_${key}`);
+      if (saved) {
+          box.setAttribute('data-active', `Equipped: ${saved}`);
+          insertImage(box, saved);
+      }
+  });
+});
+
+boxes.forEach(box => {
+  box.addEventListener('click', (e) => {
+      boxes.forEach(b => {
+          if (b !== box) b.classList.remove('open');
+      });
+      box.classList.toggle('open');
+      e.stopPropagation();
+  });
+
+  box.querySelectorAll('.dropdown-menu > div').forEach(item => {
+      item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const selected = item.textContent.trim();
+          const key = box.dataset.label.toLowerCase();
+          
+          box.setAttribute('data-active', `Equipped: ${selected}`);
+          localStorage.setItem(`locker_${key}`, selected);
+          insertImage(box, selected);
+          box.classList.remove('open');
+      });
+  });
+});
+
+function insertImage(box, selectedItem) {
+  let img = box.querySelector('img');
+  const src = equipmentMap[selectedItem];
+  if (!src) return;
+
+  if (!img) {
+      img = document.createElement('img');
+      box.appendChild(img);
+  }
+
+  img.classList.remove('loaded');
+  img.src = src;
+
+  img.onload = () => {
+      img.classList.add('loaded');
+  };
+}
+
+document.addEventListener('click', () => {
+    boxes.forEach(b => b.classList.remove('open'));
+});
