@@ -267,6 +267,23 @@ function calculateTotal() {
 
 renderCart();
 
+document.querySelector('.placeorder').addEventListener('click', () => {
+  if (cart.length === 0) return;
+
+  cart = [];
+  saveCart();
+  renderCart();
+
+  const modal = document.getElementById('order');
+  modal.style.display = 'flex';
+});
+
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('close')) {
+      document.getElementById('order').style.display = 'none';
+  }
+});
+
 /* Locker */
 
 const equipmentMap = {

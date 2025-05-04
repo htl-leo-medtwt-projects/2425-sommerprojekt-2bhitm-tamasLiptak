@@ -215,6 +215,55 @@ img {
     border: 3px solid var(--hover-color);
 }
 
+.orderconfirmation {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: popupFadeIn1 600ms ease-in-out forwards;
+}
+
+.orderconfirmationbox {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 5%;
+    border: 3px solid var(--border-color);
+    text-align: center;
+    color: white;
+    font-family: bf-headline;
+    box-shadow: 0 0 30px rgba(255, 60, 4, 0.5);
+    animation: popupFadeIn2 400ms ease-in-out forwards;
+}
+
+.orderconfirmationbox h1 {
+    font-size: 6rem;
+}
+
+.orderconfirmationbox p {
+    font-size: 2.5rem;
+}
+
+.close {
+    margin-top: 5%;
+    background-color: var(--general-color);
+    padding: 3% 1%;
+    cursor: pointer;
+    font-size: 3rem;
+    border: 3px solid white;
+    transition: all 150ms ease-in-out;
+}
+
+.close:hover {
+    transform: scale(0.95);
+    border-color: var(--hover-color);
+}
+
+
 /* #endregion */
 
 @keyframes blurFadeIn {
@@ -262,6 +311,26 @@ img {
 
     100% {
         transform: translateX(0);
+    }
+}
+
+@keyframes popupFadeIn1 {
+    0% {
+        background: rgba(0, 0, 0, 0.0);
+    }
+    100% {
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
+
+@keyframes popupFadeIn2 {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
