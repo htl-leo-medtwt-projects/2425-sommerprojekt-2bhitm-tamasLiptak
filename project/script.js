@@ -276,6 +276,7 @@ document.querySelector('.placeorder').addEventListener('click', () => {
 
   const modal = document.getElementById('order');
   modal.style.display = 'flex';
+  document.querySelector('.referral').value = '';
 });
 
 document.addEventListener('click', (e) => {
