@@ -27,10 +27,10 @@ if (bodyClass.includes("bf2042")) {
   logoImg.src = "./../media/img/battlefield4-logo.png";
   headerbg1.style.backgroundImage = "url('./../media/img/bf4/bf4header.webp')";
 } else if (bodyClass.includes("store")) {
-  
 }
 
-if (window.innerWidth >= 768) {
+let mm = gsap.matchMedia();
+mm.add("(min-width: 768px)", () => {
   gsap.registerPlugin(ScrollTrigger);
 
   // Animation for Main Page
@@ -151,51 +151,52 @@ if (window.innerWidth >= 768) {
       delay: i * 0.2
     });
   }
-)
-}
+  )
+  setInterval(updateDateTime, 1000);
+  updateDateTime();
+});
 
-setInterval(updateDateTime, 1000);
-updateDateTime();
+
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function saveCart() {
-    localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 function addToCart(game, button) {
-    const exists = cart.some(item => item.title === game.title);
+  const exists = cart.some(item => item.title === game.title);
 
-    if (!exists) {
-        cart.push(game);
-        saveCart();
-        renderCart();
-    } else {
-        button.classList.add('orderbuttonshake');
-        console.log('item already in cart');
+  if (!exists) {
+    cart.push(game);
+    saveCart();
+    renderCart();
+  } else {
+    button.classList.add('orderbuttonshake');
+    console.log('item already in cart');
 
-        setTimeout(() => {
-            button.classList.remove('orderbuttonshake');
-        }, 500);
-    }
+    setTimeout(() => {
+      button.classList.remove('orderbuttonshake');
+    }, 500);
+  }
 }
 
 function removeFromCart(title) {
-    cart = cart.filter(item => item.title !== title);
-    saveCart();
-    renderCart();
+  cart = cart.filter(item => item.title !== title);
+  saveCart();
+  renderCart();
 }
 
 function renderCart() {
-    const ordercard = document.querySelector('.ordercard');
-    ordercard.innerHTML = '';
+  const ordercard = document.querySelector('.ordercard');
+  ordercard.innerHTML = '';
 
-    cart.forEach(game => {
-        const item = document.createElement('div');
-        item.classList.add('orderitem');
-        item.style.position = 'relative';
+  cart.forEach(game => {
+    const item = document.createElement('div');
+    item.classList.add('orderitem');
+    item.style.position = 'relative';
 
-        item.innerHTML = `
+    item.innerHTML = `
             <div class="orderposter">
                 <img src="${game.poster}" alt="${game.title}">
             </div>
@@ -206,46 +207,46 @@ function renderCart() {
             </div>
         `;
 
-        ordercard.appendChild(item);
-    });
+    ordercard.appendChild(item);
+  });
 
-    document.querySelectorAll('.removeOrderButton').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const title = e.target.getAttribute('data-title');
-            removeFromCart(title);
-        });
+  document.querySelectorAll('.removeOrderButton').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const title = e.target.getAttribute('data-title');
+      removeFromCart(title);
     });
+  });
 
-    calculateTotal();
+  calculateTotal();
 }
 
 document.querySelectorAll('.addtocart').forEach(button => {
-    button.addEventListener('click', () => {
-        const storecard = button.closest('.storecard');
-        const title = storecard.querySelector('h1').innerText;
-        const price = storecard.querySelector('h2').innerText;
-        const poster = storecard.querySelector('.poster img').src;
+  button.addEventListener('click', () => {
+    const storecard = button.closest('.storecard');
+    const title = storecard.querySelector('h1').innerText;
+    const price = storecard.querySelector('h2').innerText;
+    const poster = storecard.querySelector('.poster img').src;
 
-        const game = { title, price, poster };
-        addToCart(game, button);
-    });
-}); 
+    const game = { title, price, poster };
+    addToCart(game, button);
+  });
+});
 
 function calculateTotal() {
   let total = 0;
   cart.forEach(item => {
-      // Remove the € and convert to number
-      const priceNumber = parseFloat(item.price.replace('€', '').replace(',', '.'));
-      total += priceNumber;
-      console.log(priceNumber);
-      console.log(total);
+    // Remove the € and convert to number
+    const priceNumber = parseFloat(item.price.replace('€', '').replace(',', '.'));
+    total += priceNumber;
+    console.log(priceNumber);
+    console.log(total);
   });
 
   // Update the totalprice element
   const totalPriceElement = document.querySelector('.totalprice h2');
   if (totalPriceElement) {
-      totalPriceElement.innerText = total.toFixed(2).replace('.', ',') + '€';
-      console.log(totalPriceElement.innerText);
+    totalPriceElement.innerText = total.toFixed(2).replace('.', ',') + '€';
+    console.log(totalPriceElement.innerText);
   }
 }
 
