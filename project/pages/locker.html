@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="./storelocker.css">
         <script src="./../script.js" defer></script>
     </head>
-    <body class="theme-main">
+    <body class="theme-locker">
 
         <nav class="navbar">
             <div class="logo leftslide"><a href="./../index.html"><img
@@ -33,6 +33,42 @@
                     DISCORD</a>
             </div>
         </nav>
+
+        <div class="lockercontainer">
+            <div class="equipmentcontainer">
+                <div class="outfit" data-label="Outfit" data-active="None">
+                    <div class="dropdown-menu">
+                        <div>Assault</div>
+                        <div>Engineer</div>
+                        <div>Support</div>
+                        <div>Recon</div>
+                    </div>
+                </div>
+                <div class="primaryweapon" data-label="Primary"
+                    data-active="None">
+                    <div class="dropdown-menu">
+                        <div>AEK-971</div>
+                        <div>P90</div>
+                        <div>M249</div>
+                        <div>SAIGA-12</div>
+                        <div>M98B</div>
+                    </div>
+                </div>
+                <div class="secondaryweapon" data-label="Secondary"
+                    data-active="None">
+                    <div class="dropdown-menu">
+                        <div>G18</div>
+                        <div>M9</div>
+                        <div>M1911</div>
+                        <div>TAURUS 44</div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview" data-label="Preview">
+                <div class="previewimg"></div>
+                <div class="previewdescription"></div>
+            </div>
+        </div>
 
         <script
             src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
