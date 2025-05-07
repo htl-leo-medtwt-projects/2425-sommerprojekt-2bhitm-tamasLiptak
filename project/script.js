@@ -267,17 +267,20 @@ function calculateTotal() {
 
 renderCart();
 
-document.querySelector('.placeorder').addEventListener('click', () => {
-  if (cart.length === 0) return;
+const placeOrderBtn = document.querySelector('.placeorder');
+if (placeOrderBtn) {
+  placeOrderBtn.addEventListener('click', () => {
+    if (cart.length === 0) return;
 
-  cart = [];
-  saveCart();
-  renderCart();
+    cart = [];
+    saveCart();
+    renderCart();
 
-  const modal = document.getElementById('order');
-  modal.style.display = 'flex';
-  document.querySelector('.referral').value = '';
-});
+    const modal = document.getElementById('order');
+    modal.style.display = 'flex';
+    document.querySelector('.referral').value = '';
+  });
+}
 
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('close')) {
