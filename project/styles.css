@@ -857,3 +857,14 @@ select {
 ::-webkit-scrollbar-thumb {
 	background-color: var(--general-color);
 }
+
+@media screen and (orientation: landscape) {
+    .navbar {
+        padding: none;
+        max-height: 12%;
+    }
+
+    .logo {
+        width: 25%;
+    }
+}
