@@ -841,6 +841,17 @@ select {
         flex-direction: column;
         align-items: center;
     }
+
+    @media screen and (orientation: landscape) {
+        .navbar {
+            padding: none;
+            max-height: 12%;
+        }
+    
+        .logo {
+            width: 25%;
+        }
+    }
 }
 
 /* #endregion */
@@ -856,15 +867,4 @@ select {
 
 ::-webkit-scrollbar-thumb {
 	background-color: var(--general-color);
-}
-
-@media screen and (orientation: landscape) {
-    .navbar {
-        padding: none;
-        max-height: 12%;
-    }
-
-    .logo {
-        width: 25%;
-    }
 }

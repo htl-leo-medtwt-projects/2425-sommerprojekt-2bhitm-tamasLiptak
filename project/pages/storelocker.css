@@ -621,6 +621,21 @@ img {
     .addtocart {
         margin: 0
     }
+
+    @media screen and (orientation: landscape) {
+        .equipmentcontainer > div::before {
+            font-size: 1.2rem;
+        }
+    
+        .equipmentcontainer > div::after {
+            font-size: 1.2rem;
+        }
+    
+        .dropdown-menu > div {
+            padding: 5%;
+            font-size: 1.5rem;
+        }
+    }
 }
 
 ::-webkit-scrollbar {
@@ -636,18 +651,3 @@ img {
 }
 
 /* #endregion */
-
-@media screen and (orientation: landscape) {
-    .equipmentcontainer > div::before {
-        font-size: 1.2rem;
-    }
-
-    .equipmentcontainer > div::after {
-        font-size: 1.2rem;
-    }
-
-    .dropdown-menu > div {
-        padding: 5%;
-        font-size: 1.5rem;
-    }
-}

@@ -425,14 +425,143 @@ dropdownItems.forEach(item => {
   });
 });
 
-let itemData = {};
-
-fetch('./../data/locker.json')
-  .then(response => response.json())
-  .then(data => {
-    itemData = data;
-  })
-  .catch(error => console.error('Failed to load item data:', error));
+let itemData = { 
+  "Assault": {
+      "type": "Outfit",
+      "description": "The Assault class excels in close to medium-range combat, delivering consistent damage and suppressive fire on the frontlines. Equipped with balanced armor and enhanced mobility, Assault troops are trained to breach and secure enemy positions under pressure.",
+      "stats": {
+          "armor": 70,
+          "speed": 75,
+          "utility": 60
+      }
+  },
+  "Engineer": {
+      "type": "Outfit",
+      "description": "Engineers specialize in repairing vehicles, deploying explosives, and neutralizing enemy armor threats. Their compact loadout allows for high mobility, and they thrive in technical roles both offensively and defensively.",
+      "stats": {
+          "armor": 60,
+          "speed": 80,
+          "utility": 85
+      }
+  },
+  "Support": {
+      "type": "Outfit",
+      "description": "Support troops are the backbone of any squad, providing continuous ammunition, suppressive fire, and heavy weaponry. Built for resilience, they maintain pressure on enemy lines and keep allies combat-ready.",
+      "stats": {
+          "armor": 85,
+          "speed": 60,
+          "utility": 70
+      }
+  },
+  "Recon": {
+      "type": "Outfit",
+      "description": "Recon units gather intel, mark enemy targets, and deliver precise shots from a distance. With enhanced spotting tools and camouflage capabilities, they operate best when unseen and outmaneuvering opponents.",
+      "stats": {
+          "armor": 50,
+          "speed": 85,
+          "utility": 90
+      }
+  },
+  "AEK-971": {
+      "type": "Primary Weapon",
+      "description": "The AEK-971 is a Russian assault rifle known for its exceptional rate of fire and controllable recoil. Designed for urban and mid-range encounters, it offers a deadly balance of firepower and accuracy in close quarters.",
+      "stats": {
+          "damage": 36,
+          "fireRate": 900,
+          "accuracy": 68,
+          "range": 55,
+          "mobility": 75
+      }
+  },
+  "P90": {
+      "type": "Primary Weapon",
+      "description": "The FN P90 is a compact, futuristic SMG with a top-mounted magazine and high-capacity rounds. Its ergonomic design and rapid rate of fire make it ideal for tight indoor skirmishes and reactive combat scenarios.",
+      "stats": {
+          "damage": 25,
+          "fireRate": 900,
+          "accuracy": 55,
+          "range": 30,
+          "mobility": 90
+      }
+  },
+  "M249": {
+      "type": "Primary Weapon",
+      "description": "A belt-fed light machine gun, the M249 provides unmatched sustained fire, capable of pinning enemies and laying down effective cover. While heavier than other primaries, it makes up for it with capacity and reliability.",
+      "stats": {
+          "damage": 35,
+          "fireRate": 750,
+          "accuracy": 60,
+          "range": 60,
+          "mobility": 50
+      }
+  },
+  "SAIGA-12": {
+      "type": "Primary Weapon",
+      "description": "The SAIGA-12 is a semi-automatic shotgun derived from the AK platform, delivering devastating damage at close range. It's the preferred choice for aggressive breaching and hallway dominance.",
+      "stats": {
+          "damage": 80,
+          "fireRate": 400,
+          "accuracy": 40,
+          "range": 20,
+          "mobility": 65
+      }
+  },
+  "M98B": {
+      "type": "Primary Weapon",
+      "description": "A high-caliber bolt-action sniper rifle, the M98B is built for long-range precision with armor-piercing capability. Effective in open fields and vantage points, it rewards accuracy and patience.",
+      "stats": {
+          "damage": 90,
+          "fireRate": 45,
+          "accuracy": 95,
+          "range": 100,
+          "mobility": 40
+      }
+  },
+  "G18": {
+      "type": "Secondary Weapon",
+      "description": "The G18 is a fully automatic variant of the classic Glock, featuring rapid burst fire and a compact frame. Best used as a backup in close encounters, it offers surprising power in its class.",
+      "stats": {
+          "damage": 20,
+          "fireRate": 1100,
+          "accuracy": 40,
+          "range": 15,
+          "mobility": 90
+      }
+  },
+  "M9": {
+      "type": "Secondary Weapon",
+      "description": "Reliable and accurate, the M9 sidearm serves as a dependable secondary weapon in any loadout. It's a balanced pistol with consistent performance and minimal recoil.",
+      "stats": {
+          "damage": 28,
+          "fireRate": 400,
+          "accuracy": 60,
+          "range": 25,
+          "mobility": 85
+      }
+  },
+  "M1911": {
+      "type": "Secondary Weapon",
+      "description": "A time-tested .45 caliber handgun, the M1911 is praised for its stopping power and historical significance. While it has a slower fire rate, its damage per shot compensates effectively.",
+      "stats": {
+          "damage": 35,
+          "fireRate": 350,
+          "accuracy": 65,
+          "range": 20,
+          "mobility": 80
+      }
+  },
+  "TAURUS 44": {
+      "type": "Secondary Weapon",
+      "description": "This powerful revolver is chambered in .44 Magnum, delivering heavy impact with each shot. Ideal for skilled marksmen, the Taurus 44 is perfect for taking down enemies with just a few well-placed hits.",
+      "stats": {
+          "damage": 50,
+          "fireRate": 200,
+          "accuracy": 70,
+          "range": 30,
+          "mobility": 75
+      }
+  }
+}
 
 const previewDescription = document.querySelector('.previewdescription');
 
