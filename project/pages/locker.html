@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,37 @@
         <link rel="stylesheet" href="./../styles.css">
         <link rel="stylesheet" href="./storelocker.css">
         <script src="./../script.js" defer></script>
+        <script defer>
+        // Mobile Splash Screen
+        // ChatGPT for orientation check
+
+        function isMobileDevice() {
+            return /Mobi|Android|iPhone|iPad|iPod|Tablet/i.test(navigator.userAgent);
+        }
+
+        function checkOrientation() {
+            const splash = document.getElementById('splash');
+            const locker = document.querySelector('.lockercontainer');
+
+            if (!splash || !locker) return;
+
+            const isPortrait = window.innerHeight > window.innerWidth;
+
+            if (isMobileDevice() && isPortrait) {
+                splash.classList.add('activesplash');
+                locker.style.display = 'none';
+            } else {
+                splash.classList.remove('activesplash');
+                locker.style.display = '';
+            }
+        }
+
+        window.addEventListener('load', checkOrientation);
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('orientationchange', checkOrientation);
+        </script>
     </head>
+
     <body class="theme-locker">
 
         <nav class="navbar">
@@ -89,4 +120,5 @@
         <script
             src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     </body>
+
 </html>

@@ -612,25 +612,3 @@ function updatePreview(itemName) {
         <div class="stats">${statsHtml}</div>
     `;
 }
-
-// Mobile Splash Screen
-// ChatGPT for splash screen
-
-function isMobileDevice() {
-  return /Mobi|Android|iPhone|iPad|iPod|Tablet/i.test(navigator.userAgent);
-}
-
-function checkOrientation() {
-  const splash = document.querySelector('splash-overlay');
-  const isPortrait = window.innerHeight > window.innerWidth;
-
-  if (isMobileDevice() && isPortrait) {
-    splash.classList.add('activesplash');
-  } else {
-    splash.classList.remove('activesplash');
-  }
-}
-
-window.addEventListener('load', checkOrientation);
-window.addEventListener('resize', checkOrientation);
-window.addEventListener('orientationchange', checkOrientation);
