@@ -29,7 +29,6 @@ if (bodyClass.includes("bf2042")) {
 }
 
 /* GSAP */
-
 if (window.innerWidth >= 768) {
   function updateDateTime() {
     const now = new Date();
@@ -47,113 +46,119 @@ if (window.innerWidth >= 768) {
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Animation for Main Page
-  gsap.from(".lockerweaponimg", {
-    scrollTrigger: {
-      trigger: ".lockerweaponimg",
-      toggleActions: "restart pause reverse pause",
-      start: "top 80%",
-      scrub: 1,
-      end: "top 25%",
-    },
-    x: 700,
-    rotation: 45,
-    scale: 0.5,
-    duration: 2
-  });
+  const mm = gsap.matchMedia();
 
-  gsap.from(".homepageText p", {
-    scrollTrigger: {
-      trigger: ".homepageText",
-      start: "top 80%",
-      end: "top 20%",
-    },
-    x: -700,
-    duration: 1.5
-  });
+  mm.add('(min-width: 768px)', () => {
+    console.log('gsap loading')
 
-  gsap.from(".vehicleimg", {
-    scrollTrigger: {
-      trigger: ".vehicleimg",
-      start: "top 70%",
-      end: "top 40%",
-      scrub: 1
-    },
-    rotation: -10,
-    scale: 0.7,
-    x: -700,
-    y: 100,
-    duration: 2
-  });
-
-  gsap.from(".homepageText1 p", {
-    scrollTrigger: {
-      trigger: ".homepageText1",
-      start: "top 80%",
-      end: "top 20%",
-    },
-    x: 700,
-    duration: 1.5
-  });
-
-  gsap.from(".vehicleshot", {
-    scrollTrigger: {
-      trigger: ".vehicleshot",
-      scrub: 1,
-      start: "top 45%",
-      end: "top 35%",
-    },
-    opacity: 0,
-    scale: 0.1,
-    duration: 0.2
-  });
-
-  gsap.from(".signup", {
-    scrollTrigger: {
-      trigger: ".signup",
-      start: "top 90%",
-      end: "top 50%",
-    },
-    y: 300,
-    scale: 0.6,
-    opacity: 0,
-    duration: 1
-  });
-
-  // Animation for Battlefield X Header
-  gsap.from(".imgheader", {
-    x: -700,
-    y: 700,
-    duration: 1.5,
-    delay: 0.5,
-    rotation: -45,
-  });
-
-  gsap.from(".cardheader", {
-    x: 1200,
-    duration: 1.5,
-    delay: 0.5
-  });
-
-  // Animation for posters
-  const titles = gsap.utils.toArray(".storecard");
-  titles.forEach((preview, i) => {
-    gsap.from(preview, {
+    // Animation for Main Page
+    gsap.from(".lockerweaponimg", {
       scrollTrigger: {
-        toggleActions: "play none none none",
-        scroller: ".gamepreview",
-        trigger: preview,
-        start: "top 60%",
-        end: "top 50%",
+        trigger: ".lockerweaponimg",
+        toggleActions: "restart pause reverse pause",
+        start: "top 80%",
         scrub: 1,
-        once: true
+        end: "top 25%",
       },
-      x: -1400,
-      duration: 1.5,
-      delay: i * 0.2
+      x: 700,
+      rotation: 45,
+      scale: 0.5,
+      duration: 2
     });
-  }
-  )
+
+    gsap.from(".homepageText p", {
+      scrollTrigger: {
+        trigger: ".homepageText",
+        start: "top 80%",
+        end: "top 20%",
+      },
+      x: -700,
+      duration: 1.5
+    });
+
+    gsap.from(".vehicleimg", {
+      scrollTrigger: {
+        trigger: ".vehicleimg",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: 1
+      },
+      rotation: -10,
+      scale: 0.7,
+      x: -700,
+      y: 100,
+      duration: 2
+    });
+
+    gsap.from(".homepageText1 p", {
+      scrollTrigger: {
+        trigger: ".homepageText1",
+        start: "top 80%",
+        end: "top 20%",
+      },
+      x: 700,
+      duration: 1.5
+    });
+
+    gsap.from(".vehicleshot", {
+      scrollTrigger: {
+        trigger: ".vehicleshot",
+        scrub: 1,
+        start: "top 45%",
+        end: "top 35%",
+      },
+      opacity: 0,
+      scale: 0.1,
+      duration: 0.2
+    });
+
+    gsap.from(".signup", {
+      scrollTrigger: {
+        trigger: ".signup",
+        start: "top 90%",
+        end: "top 50%",
+      },
+      y: 300,
+      scale: 0.6,
+      opacity: 0,
+      duration: 1
+    });
+
+    // Animation for Battlefield X Header
+    gsap.from(".imgheader", {
+      x: -700,
+      y: 700,
+      duration: 1.5,
+      delay: 0.5,
+      rotation: -45,
+    });
+
+    gsap.from(".cardheader", {
+      x: 1200,
+      duration: 1.5,
+      delay: 0.5
+    });
+
+    // Animation for posters
+    const titles = gsap.utils.toArray(".storecard");
+    titles.forEach((preview, i) => {
+      gsap.from(preview, {
+        scrollTrigger: {
+          toggleActions: "play none none none",
+          scroller: ".gamepreview",
+          trigger: preview,
+          start: "top 60%",
+          end: "top 50%",
+          scrub: 1,
+          once: true
+        },
+        x: -1400,
+        duration: 1.5,
+        delay: i * 0.2
+      });
+    }
+    )
+  })
 }
 
 /* Store */
@@ -284,7 +289,7 @@ if (placeOrderBtn) {
 
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('close')) {
-      document.getElementById('order').style.display = 'none';
+    document.getElementById('order').style.display = 'none';
   }
 });
 
@@ -425,141 +430,141 @@ dropdownItems.forEach(item => {
   });
 });
 
-let itemData = { 
+let itemData = {
   "Assault": {
-      "type": "Outfit",
-      "description": "The Assault class excels in close to medium-range combat, delivering consistent damage and suppressive fire on the frontlines. Equipped with balanced armor and enhanced mobility, Assault troops are trained to breach and secure enemy positions under pressure.",
-      "stats": {
-          "armor": 70,
-          "speed": 75,
-          "utility": 60
-      }
+    "type": "Outfit",
+    "description": "The Assault class excels in close to medium-range combat, delivering consistent damage and suppressive fire on the frontlines. Equipped with balanced armor and enhanced mobility, Assault troops are trained to breach and secure enemy positions under pressure.",
+    "stats": {
+      "armor": 70,
+      "speed": 75,
+      "utility": 60
+    }
   },
   "Engineer": {
-      "type": "Outfit",
-      "description": "Engineers specialize in repairing vehicles, deploying explosives, and neutralizing enemy armor threats. Their compact loadout allows for high mobility, and they thrive in technical roles both offensively and defensively.",
-      "stats": {
-          "armor": 60,
-          "speed": 80,
-          "utility": 85
-      }
+    "type": "Outfit",
+    "description": "Engineers specialize in repairing vehicles, deploying explosives, and neutralizing enemy armor threats. Their compact loadout allows for high mobility, and they thrive in technical roles both offensively and defensively.",
+    "stats": {
+      "armor": 60,
+      "speed": 80,
+      "utility": 85
+    }
   },
   "Support": {
-      "type": "Outfit",
-      "description": "Support troops are the backbone of any squad, providing continuous ammunition, suppressive fire, and heavy weaponry. Built for resilience, they maintain pressure on enemy lines and keep allies combat-ready.",
-      "stats": {
-          "armor": 85,
-          "speed": 60,
-          "utility": 70
-      }
+    "type": "Outfit",
+    "description": "Support troops are the backbone of any squad, providing continuous ammunition, suppressive fire, and heavy weaponry. Built for resilience, they maintain pressure on enemy lines and keep allies combat-ready.",
+    "stats": {
+      "armor": 85,
+      "speed": 60,
+      "utility": 70
+    }
   },
   "Recon": {
-      "type": "Outfit",
-      "description": "Recon units gather intel, mark enemy targets, and deliver precise shots from a distance. With enhanced spotting tools and camouflage capabilities, they operate best when unseen and outmaneuvering opponents.",
-      "stats": {
-          "armor": 50,
-          "speed": 85,
-          "utility": 90
-      }
+    "type": "Outfit",
+    "description": "Recon units gather intel, mark enemy targets, and deliver precise shots from a distance. With enhanced spotting tools and camouflage capabilities, they operate best when unseen and outmaneuvering opponents.",
+    "stats": {
+      "armor": 50,
+      "speed": 85,
+      "utility": 90
+    }
   },
   "AEK-971": {
-      "type": "Primary Weapon",
-      "description": "The AEK-971 is a Russian assault rifle known for its exceptional rate of fire and controllable recoil. Designed for urban and mid-range encounters, it offers a deadly balance of firepower and accuracy in close quarters.",
-      "stats": {
-          "damage": 36,
-          "fireRate": 900,
-          "accuracy": 68,
-          "range": 55,
-          "mobility": 75
-      }
+    "type": "Primary Weapon",
+    "description": "The AEK-971 is a Russian assault rifle known for its exceptional rate of fire and controllable recoil. Designed for urban and mid-range encounters, it offers a deadly balance of firepower and accuracy in close quarters.",
+    "stats": {
+      "damage": 36,
+      "fireRate": 900,
+      "accuracy": 68,
+      "range": 55,
+      "mobility": 75
+    }
   },
   "P90": {
-      "type": "Primary Weapon",
-      "description": "The FN P90 is a compact, futuristic SMG with a top-mounted magazine and high-capacity rounds. Its ergonomic design and rapid rate of fire make it ideal for tight indoor skirmishes and reactive combat scenarios.",
-      "stats": {
-          "damage": 25,
-          "fireRate": 900,
-          "accuracy": 55,
-          "range": 30,
-          "mobility": 90
-      }
+    "type": "Primary Weapon",
+    "description": "The FN P90 is a compact, futuristic SMG with a top-mounted magazine and high-capacity rounds. Its ergonomic design and rapid rate of fire make it ideal for tight indoor skirmishes and reactive combat scenarios.",
+    "stats": {
+      "damage": 25,
+      "fireRate": 900,
+      "accuracy": 55,
+      "range": 30,
+      "mobility": 90
+    }
   },
   "M249": {
-      "type": "Primary Weapon",
-      "description": "A belt-fed light machine gun, the M249 provides unmatched sustained fire, capable of pinning enemies and laying down effective cover. While heavier than other primaries, it makes up for it with capacity and reliability.",
-      "stats": {
-          "damage": 35,
-          "fireRate": 750,
-          "accuracy": 60,
-          "range": 60,
-          "mobility": 50
-      }
+    "type": "Primary Weapon",
+    "description": "A belt-fed light machine gun, the M249 provides unmatched sustained fire, capable of pinning enemies and laying down effective cover. While heavier than other primaries, it makes up for it with capacity and reliability.",
+    "stats": {
+      "damage": 35,
+      "fireRate": 750,
+      "accuracy": 60,
+      "range": 60,
+      "mobility": 50
+    }
   },
   "SAIGA-12": {
-      "type": "Primary Weapon",
-      "description": "The SAIGA-12 is a semi-automatic shotgun derived from the AK platform, delivering devastating damage at close range. It's the preferred choice for aggressive breaching and hallway dominance.",
-      "stats": {
-          "damage": 80,
-          "fireRate": 400,
-          "accuracy": 40,
-          "range": 20,
-          "mobility": 65
-      }
+    "type": "Primary Weapon",
+    "description": "The SAIGA-12 is a semi-automatic shotgun derived from the AK platform, delivering devastating damage at close range. It's the preferred choice for aggressive breaching and hallway dominance.",
+    "stats": {
+      "damage": 80,
+      "fireRate": 400,
+      "accuracy": 40,
+      "range": 20,
+      "mobility": 65
+    }
   },
   "M98B": {
-      "type": "Primary Weapon",
-      "description": "A high-caliber bolt-action sniper rifle, the M98B is built for long-range precision with armor-piercing capability. Effective in open fields and vantage points, it rewards accuracy and patience.",
-      "stats": {
-          "damage": 90,
-          "fireRate": 45,
-          "accuracy": 95,
-          "range": 100,
-          "mobility": 40
-      }
+    "type": "Primary Weapon",
+    "description": "A high-caliber bolt-action sniper rifle, the M98B is built for long-range precision with armor-piercing capability. Effective in open fields and vantage points, it rewards accuracy and patience.",
+    "stats": {
+      "damage": 90,
+      "fireRate": 45,
+      "accuracy": 95,
+      "range": 100,
+      "mobility": 40
+    }
   },
   "G18": {
-      "type": "Secondary Weapon",
-      "description": "The G18 is a fully automatic variant of the classic Glock, featuring rapid burst fire and a compact frame. Best used as a backup in close encounters, it offers surprising power in its class.",
-      "stats": {
-          "damage": 20,
-          "fireRate": 1100,
-          "accuracy": 40,
-          "range": 15,
-          "mobility": 90
-      }
+    "type": "Secondary Weapon",
+    "description": "The G18 is a fully automatic variant of the classic Glock, featuring rapid burst fire and a compact frame. Best used as a backup in close encounters, it offers surprising power in its class.",
+    "stats": {
+      "damage": 20,
+      "fireRate": 1100,
+      "accuracy": 40,
+      "range": 15,
+      "mobility": 90
+    }
   },
   "M9": {
-      "type": "Secondary Weapon",
-      "description": "Reliable and accurate, the M9 sidearm serves as a dependable secondary weapon in any loadout. It's a balanced pistol with consistent performance and minimal recoil.",
-      "stats": {
-          "damage": 28,
-          "fireRate": 400,
-          "accuracy": 60,
-          "range": 25,
-          "mobility": 85
-      }
+    "type": "Secondary Weapon",
+    "description": "Reliable and accurate, the M9 sidearm serves as a dependable secondary weapon in any loadout. It's a balanced pistol with consistent performance and minimal recoil.",
+    "stats": {
+      "damage": 28,
+      "fireRate": 400,
+      "accuracy": 60,
+      "range": 25,
+      "mobility": 85
+    }
   },
   "M1911": {
-      "type": "Secondary Weapon",
-      "description": "A time-tested .45 caliber handgun, the M1911 is praised for its stopping power and historical significance. While it has a slower fire rate, its damage per shot compensates effectively.",
-      "stats": {
-          "damage": 35,
-          "fireRate": 350,
-          "accuracy": 65,
-          "range": 20,
-          "mobility": 80
-      }
+    "type": "Secondary Weapon",
+    "description": "A time-tested .45 caliber handgun, the M1911 is praised for its stopping power and historical significance. While it has a slower fire rate, its damage per shot compensates effectively.",
+    "stats": {
+      "damage": 35,
+      "fireRate": 350,
+      "accuracy": 65,
+      "range": 20,
+      "mobility": 80
+    }
   },
   "TAURUS 44": {
-      "type": "Secondary Weapon",
-      "description": "This powerful revolver is chambered in .44 Magnum, delivering heavy impact with each shot. Ideal for skilled marksmen, the Taurus 44 is perfect for taking down enemies with just a few well-placed hits.",
-      "stats": {
-          "damage": 50,
-          "fireRate": 200,
-          "accuracy": 70,
-          "range": 30,
-          "mobility": 75
-      }
+    "type": "Secondary Weapon",
+    "description": "This powerful revolver is chambered in .44 Magnum, delivering heavy impact with each shot. Ideal for skilled marksmen, the Taurus 44 is perfect for taking down enemies with just a few well-placed hits.",
+    "stats": {
+      "damage": 50,
+      "fireRate": 200,
+      "accuracy": 70,
+      "range": 30,
+      "mobility": 75
+    }
   }
 }
 
@@ -607,3 +612,25 @@ function updatePreview(itemName) {
         <div class="stats">${statsHtml}</div>
     `;
 }
+
+// Mobile Splash Screen
+// ChatGPT for splash screen
+
+function isMobileDevice() {
+  return /Mobi|Android|iPhone|iPad|iPod|Tablet/i.test(navigator.userAgent);
+}
+
+function checkOrientation() {
+  const splash = document.querySelector('splash-overlay');
+  const isPortrait = window.innerHeight > window.innerWidth;
+
+  if (isMobileDevice() && isPortrait) {
+    splash.classList.add('activesplash');
+  } else {
+    splash.classList.remove('activesplash');
+  }
+}
+
+window.addEventListener('load', checkOrientation);
+window.addEventListener('resize', checkOrientation);
+window.addEventListener('orientationchange', checkOrientation);

@@ -167,6 +167,7 @@ img {
     color: white;
     font-size: 1rem;
     right: 5%;
+    bottom: 5%;
     cursor: pointer;
     transition: all 150ms ease-in-out;
 }
@@ -318,6 +319,7 @@ img {
     0% {
         background: rgba(0, 0, 0, 0.0);
     }
+
     100% {
         background: rgba(0, 0, 0, 0.7);
     }
@@ -328,6 +330,7 @@ img {
         opacity: 0;
         transform: scale(0.8);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
@@ -360,7 +363,7 @@ img {
     gap: 10px;
 }
 
-.equipmentcontainer > div {
+.equipmentcontainer>div {
     position: relative;
     color: white;
     font-family: sans-serif;
@@ -371,7 +374,7 @@ img {
     transition: all 0.2s ease-in-out;
 }
 
-.equipmentcontainer > div::before {
+.equipmentcontainer>div::before {
     content: attr(data-label);
     position: absolute;
     top: 0;
@@ -386,7 +389,7 @@ img {
     transition: all 0.2s ease-in-out;
 }
 
-.equipmentcontainer > div::after {
+.equipmentcontainer>div::after {
     content: attr(data-active);
     position: absolute;
     bottom: 0;
@@ -418,23 +421,23 @@ img {
     opacity: 1;
 }
 
-.equipmentcontainer > div:hover {
+.equipmentcontainer>div:hover {
     transform: scale(1.03);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
     border: 3px solid var(--hover-color);
 }
 
-.equipmentcontainer > div:hover::before {
+.equipmentcontainer>div:hover::before {
     color: var(--hover-color);
     border-bottom: 3px solid var(--hover-color);
 }
 
-.equipmentcontainer > div:hover::after {
+.equipmentcontainer>div:hover::after {
     color: var(--hover-color);
     border-top: 3px solid var(--hover-color);
 }
 
-.equipmentcontainer > div:hover img {
+.equipmentcontainer>div:hover img {
     transform: translateX(-50%) translateY(-50%) scale(1.2);
 }
 
@@ -455,10 +458,10 @@ img {
     visibility: hidden;
     opacity: 0;
     transition: all 300ms ease-in-out;
-    overflow-y:scroll;
+    overflow-y: scroll;
 }
 
-.dropdown-menu > div {
+.dropdown-menu>div {
     width: 100%;
     padding: 5%;
     border-bottom: 3px solid;
@@ -469,12 +472,12 @@ img {
     transition: all 150ms ease-in-out;
 }
 
-.dropdown-menu > div:hover {
+.dropdown-menu>div:hover {
     color: var(--hover-color);
     border-bottom: 3px solid var(--hover-color);
 }
 
-.equipmentcontainer > div.open .dropdown-menu {
+.equipmentcontainer>div.open .dropdown-menu {
     visibility: visible;
     opacity: 1;
 }
@@ -602,9 +605,49 @@ img {
     color: white;
     line-height: 16px;
 }
+
 /* #endregion */
 
+.splash-overlay {
+    display: none;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.splash-overlay h2,
+.splash-overlay p {
+    color: white;
+}
+
+.splash-overlay.activesplash {
+      display: flex;
+    }
+
 /* #region Media Queries */
+@media (max-width: 1250px) {
+    .ordersummary h1 {
+        font-size: 2.5rem;
+    }
+
+    .ordercontent h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .ordercontent h2 {
+        font-size: 1.5rem;
+    }
+
+    .removeOrderButton {
+        bottom: -15%;
+    }
+}
 
 @media (max-width: 768px) {
     .storescreen {
@@ -621,20 +664,57 @@ img {
     .addtocart {
         margin: 0
     }
+}
 
-    @media screen and (orientation: landscape) {
-        .equipmentcontainer > div::before {
-            font-size: 1.2rem;
-        }
-    
-        .equipmentcontainer > div::after {
-            font-size: 1.2rem;
-        }
-    
-        .dropdown-menu > div {
-            padding: 5%;
-            font-size: 1.5rem;
-        }
+@media screen and (orientation: landscape) and (max-width: 1250px) {
+    .equipmentcontainer>div::before {
+        font-size: 1.2rem;
+    }
+
+    .equipmentcontainer>div::after {
+        font-size: 1.2rem;
+    }
+
+    .dropdown-menu>div {
+        padding: 5%;
+        font-size: 1.5rem;
+    }
+
+    .previewdescription p {
+        font-size: 0.8rem;
+    }
+
+    .previewdescription h2,
+    small {
+        font-size: 1.2rem
+    }
+
+    .preview[data-label]::before {
+        font-size: 1.2rem;
+    }
+
+    .stat-name {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        text-decoration: none;
+    }
+
+    .stat-bar-container {
+        height: 15px;
+    }
+
+    .splash-overlay {
+        display: none;
+    }
+}
+
+@media screen and (orientation: portrait) and (max-width: 1000px) {
+    .splash-overlay {
+        display: flex;
+    }
+
+    .lockercontainer {
+        display: none;
     }
 }
 
