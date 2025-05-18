@@ -74,6 +74,13 @@ body {
     border: 3px solid var(--general-color);
 }
 
+@media (min-width: 2560px) {
+    .labsbutton-simple {
+        font-size: 4rem;
+        padding: 2% 5%;
+    }
+}
+
 @media (max-width: 1250px) {
     .labsheader {
         flex-direction: column;

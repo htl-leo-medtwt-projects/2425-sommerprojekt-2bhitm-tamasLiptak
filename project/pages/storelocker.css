@@ -630,6 +630,48 @@ img {
     }
 
 /* #region Media Queries */
+@media (min-width: 2560px) {
+    #slidein {
+        animation: none;
+    }
+
+    .storecard {
+        width: 90%;
+    }
+
+    .postercontent P {
+        font-size: 1.75rem;
+    }
+
+    .equipmentcontainer>div::before {
+        font-size: 3rem;
+    }
+
+    .equipmentcontainer>div::after {
+        font-size: 3rem;
+    }
+
+    .preview[data-label]::before {
+        font-size: 3rem;
+    }
+
+    .previewdescription h2 {
+        font-size: 4rem;
+    }
+
+    .previewdescription p {
+        font-size: 2rem;
+    }
+
+    .stat-name {
+        font-size: 3rem;
+    }
+    
+    .stat-bar-container {
+        height: 40px;
+    }
+}
+
 @media (max-width: 1250px) {
     .ordersummary h1 {
         font-size: 2.5rem;
