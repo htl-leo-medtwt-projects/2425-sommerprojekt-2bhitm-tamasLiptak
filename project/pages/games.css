@@ -159,15 +159,41 @@ body.theme-bf4 {
     align-items: center;
 }
 
+.gallerycontainer > h1 {
+    filter: drop-shadow(0px 0px 25px rgb(0, 0, 0, 0.8)) drop-shadow(0px 15px 15px rgb(0, 0, 0, 0.8));
+}
+
 .slideshow {
     position: relative;
     width: 65%;
     height: 100%;
     margin: 2%;
+    filter: drop-shadow(0px 0px 25px rgb(0, 0, 0, 1)) drop-shadow(0px 7px 35px rgb(0, 0, 0, 1));
 }
 
-.slideshow img {
+#slideshowImage {
     width: 100%;
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+}
+
+#slideshowImage.fade-out {
+    opacity: 0;
+}
+
+.progressbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 0%;
+    background-color: var(--general-color, #3498db);
+    transition: width 0.1s linear;
+    z-index: 5;
+}
+
+.progress-bar.no-transition {
+  transition: none !important;
 }
 
 #leftButton, #rightButton {
@@ -186,7 +212,7 @@ body.theme-bf4 {
     width: 5%;
     cursor: pointer;
     transition: all 100ms ease-in-out;
-    border: none;
+    border:none ;
 }
 
 #leftButton:hover, #rightButton:hover {
@@ -204,6 +230,32 @@ body.theme-bf4 {
 
 #rightButton {
     right: 1.5%;
+}
+
+.dots {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.5% 1%;
+  border-radius: 20px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: rgba(255, 255, 255, 1);
 }
 
 @media (min-width: 2560px) {

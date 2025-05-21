@@ -620,8 +620,8 @@ const totalImages = 4;
 const images = Array.from({ length: totalImages }, (_, i) => `./../media/img/${folderName}/pic${i + 1}.jpg`);
 
 images.forEach(src => {
-    const img = new Image();
-    img.src = src;
+  const img = new Image();
+  img.src = src;
 });
 console.log(images);
 
@@ -630,9 +630,65 @@ let currentIndex = 0;
 const slideshowImage = document.getElementById("slideshowImage");
 const leftButton = document.getElementById("leftButton");
 const rightButton = document.getElementById("rightButton");
+const dots = document.querySelectorAll(".dot");
+const progressBar = document.querySelector('.progressbar');
+const slideDuration = 7000;
+let progress = 0;
+let progressInterval;
+
+function startProgress() {
+  clearInterval(progressInterval);
+  progress = 0;
+
+  progressBar.classList.remove('no-transition');
+
+  progressInterval = setInterval(() => {
+    progress += 100 / (slideDuration / 100);
+    if (progress >= 100) {
+      clearInterval(progressInterval);
+      progress = 0;
+      nextSlide();
+    }
+    progressBar.style.width = progress + '%';
+  }, 100);
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateImage();
+}
+
+dots.forEach((dot, idx) => {
+  dot.addEventListener("click", () => {
+    currentIndex = idx;
+    updateImage();
+  });
+});
 
 function updateImage() {
-  slideshowImage.src = images[currentIndex];
+  clearInterval(progressInterval);
+
+  progressBar.classList.add('no-transition');
+  progressBar.style.width = '0%';
+  progress = 0;
+
+  void progressBar.offsetWidth;
+
+  slideshowImage.classList.add('fade-out');
+
+  setTimeout(() => {
+    slideshowImage.src = images[currentIndex];
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === currentIndex);
+    });
+
+    slideshowImage.classList.remove('fade-out');
+
+    setTimeout(() => {
+      startProgress();
+    }, 1000);
+  }, 250);
 }
 
 leftButton.addEventListener("click", () => {
