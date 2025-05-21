@@ -612,3 +612,37 @@ function updatePreview(itemName) {
         <div class="stats">${statsHtml}</div>
     `;
 }
+
+const filename = window.location.pathname.split('/').pop();
+const folderName = filename.replace('.html', '');
+
+const totalImages = 4;
+const images = Array.from({ length: totalImages }, (_, i) => `./../media/img/${folderName}/pic${i + 1}.jpg`);
+
+images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+});
+console.log(images);
+
+let currentIndex = 0;
+
+const slideshowImage = document.getElementById("slideshowImage");
+const leftButton = document.getElementById("leftButton");
+const rightButton = document.getElementById("rightButton");
+
+function updateImage() {
+  slideshowImage.src = images[currentIndex];
+}
+
+leftButton.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateImage();
+});
+
+rightButton.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  updateImage();
+});
+
+updateImage();
