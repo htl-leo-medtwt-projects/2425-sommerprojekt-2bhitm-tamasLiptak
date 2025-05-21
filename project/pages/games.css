@@ -54,7 +54,19 @@ body.theme-bf4 {
 }
 
 /* #endregion */
+html,
+body {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 8%;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    height: 100%;
+}
 
+.bfheader,
+.gallerycontainer {
+    scroll-snap-align: start;
+}
 
 .bfheader {
     width: 100%;
@@ -68,6 +80,7 @@ body.theme-bf4 {
     align-items: center;
     padding: 10% 2% 5% 2%;
     z-index: 1;
+    border-bottom: 3px solid var(--border-color);
 }
 
 .imgheader {
@@ -78,7 +91,8 @@ body.theme-bf4 {
 
 .cardheader {
     width: 35%;
-    height: 100%;
+    height: auto;
+    padding: 0 0 5%;
     position: relative;
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
@@ -151,16 +165,17 @@ body.theme-bf4 {
 
 .gallerycontainer {
     width: 100%;
-    height: auto;
     padding: 1% 0.5%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    backdrop-filter: blur(20px);
 }
 
-.gallerycontainer > h1 {
-    filter: drop-shadow(0px 0px 25px rgb(0, 0, 0, 0.8)) drop-shadow(0px 15px 15px rgb(0, 0, 0, 0.8));
+.gallerycontainer>h1 {
+    text-transform: uppercase;
+    filter: drop-shadow(0px 0px 25px rgb(0, 0, 0, 0.8)) drop-shadow(0px 5px 15px rgb(0, 0, 0, 0.8));
 }
 
 .slideshow {
@@ -168,7 +183,7 @@ body.theme-bf4 {
     width: 65%;
     height: 100%;
     margin: 2%;
-    filter: drop-shadow(0px 0px 25px rgb(0, 0, 0, 1)) drop-shadow(0px 7px 35px rgb(0, 0, 0, 1));
+    filter: drop-shadow(0px 0px 25px rgb(0, 0, 0, 1)) drop-shadow(0px 15px 35px rgb(0, 0, 0, 1));
 }
 
 #slideshowImage {
@@ -193,10 +208,11 @@ body.theme-bf4 {
 }
 
 .progress-bar.no-transition {
-  transition: none !important;
+    transition: none !important;
 }
 
-#leftButton, #rightButton {
+#leftButton,
+#rightButton {
     font-size: 3rem;
     z-index: 2;
     position: absolute;
@@ -212,15 +228,17 @@ body.theme-bf4 {
     width: 5%;
     cursor: pointer;
     transition: all 100ms ease-in-out;
-    border:none ;
+    border: none;
 }
 
-#leftButton:hover, #rightButton:hover {
+#leftButton:hover,
+#rightButton:hover {
     transform: translateY(-50%) scale(0.95);
     border: 2px solid var(--general-color);
 }
 
-#leftButton img, #rightButton img {
+#leftButton img,
+#rightButton img {
     width: 100%;
 }
 
@@ -233,29 +251,29 @@ body.theme-bf4 {
 }
 
 .dots {
-  position: absolute;
-  bottom: 4%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 3;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 0.5% 1%;
-  border-radius: 20px;
+    position: absolute;
+    bottom: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.5% 1%;
+    border-radius: 20px;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .dot.active {
-  background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 1);
 }
 
 @media (min-width: 2560px) {
@@ -302,6 +320,11 @@ body.theme-bf4 {
         font-size: 1.2rem;
     }
 
+    .gallerycontainer>h1 {
+        font-size: 2.5rem;
+        margin: 2% 0;
+    }
+
 }
 
 @media (max-width: 1000px) {
@@ -337,4 +360,29 @@ body.theme-bf4 {
         font-size: 1rem;
     }
 
+}
+
+@media (max-width: 768px) {
+.gallerycontainer {
+    margin-bottom: 20%;
+}
+
+    .gallerycontainer>h1 {
+        font-size: 1.5rem;
+        margin: 10% 2%;
+        text-align: center;
+    }
+
+    .slideshow {
+        width: 90%;
+    }
+
+    #leftButton,
+    #rightButton {
+        width: 10%;
+    }
+
+    .dots {
+        display: none;
+    }
 }
