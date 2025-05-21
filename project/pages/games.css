@@ -149,6 +149,63 @@ body.theme-bf4 {
     gap: 2px;
 }
 
+.gallerycontainer {
+    width: 100%;
+    height: auto;
+    padding: 1% 0.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slideshow {
+    position: relative;
+    width: 65%;
+    height: 100%;
+    margin: 2%;
+}
+
+.slideshow img {
+    width: 100%;
+}
+
+#leftButton, #rightButton {
+    font-size: 3rem;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 1.5%;
+    width: 5%;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+    border: none;
+}
+
+#leftButton:hover, #rightButton:hover {
+    transform: translateY(-50%) scale(0.95);
+    border: 2px solid var(--general-color);
+}
+
+#leftButton img, #rightButton img {
+    width: 100%;
+}
+
+#leftButton {
+    left: 1.5%;
+}
+
+#rightButton {
+    right: 1.5%;
+}
+
 @media (min-width: 2560px) {
     .cardcontent {
         font-size: 2.5em;
