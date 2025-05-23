@@ -118,11 +118,11 @@ img {
 
 .ordercard {
     width: 100%;
-    height: 50%;
-    max-height: 50%;
+    height: 400px;
+    max-height: 400px;
     margin: 2% auto;
     padding: 3%;
-    overflow-y: scroll;
+    overflow-y: auto;
     border-bottom: var(--border-color) 3px solid;
 }
 
@@ -210,6 +210,7 @@ img {
     cursor: pointer;
     text-align: center;
     transition: all 150ms ease-in-out;
+    user-select: none;
 }
 
 .placeorder:hover {
