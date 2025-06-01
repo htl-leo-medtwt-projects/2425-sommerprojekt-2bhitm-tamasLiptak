@@ -169,6 +169,33 @@ function saveCart() {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+function markOwnedGames() {
+  const ownedGames = JSON.parse(localStorage.getItem('ownedGames')) || [];
+
+  document.querySelectorAll('.addtocart').forEach(button => {
+    const storecard = button.closest('.storecard');
+    const title = storecard.querySelector('h1').innerText;
+
+    const isOwned = ownedGames.some(item => item.title === title);
+
+    if (isOwned) {
+      button.innerText = "OWNED";
+      button.style.backgroundColor = "gray";
+      button.style.border = "3px solid lightgray";
+      button.style.cursor = "not-allowed";
+      button.classList.add('owned');
+      button.disabled = true;
+    } else {
+      button.innerText = "ADD TO CART";
+      button.style.backgroundColor = "";
+      button.style.border = "";
+      button.style.cursor = "pointer";
+      button.classList.remove('owned');
+      button.disabled = false;
+    }
+  });
+}
+
 function addToCart(game, button) {
   const exists = cart.some(item => item.title === game.title);
 
@@ -221,10 +248,12 @@ function renderCart() {
     button.addEventListener('click', (e) => {
       const title = e.target.getAttribute('data-title');
       removeFromCart(title);
+      markOwnedGames();
     });
   });
 
   calculateTotal();
+  markOwnedGames();
 }
 
 document.querySelectorAll('.addtocart').forEach(button => {
@@ -276,6 +305,16 @@ const placeOrderBtn = document.querySelector('.placeorder');
 if (placeOrderBtn) {
   placeOrderBtn.addEventListener('click', () => {
     if (cart.length === 0) return;
+
+    let ownedGames = JSON.parse(localStorage.getItem('ownedGames')) || [];
+
+    cart.forEach(item => {
+      if (!ownedGames.some(owned => owned.title === item.title)) {
+        ownedGames.push(item);
+      }
+    });
+
+    localStorage.setItem('ownedGames', JSON.stringify(ownedGames));
 
     cart = [];
     saveCart();

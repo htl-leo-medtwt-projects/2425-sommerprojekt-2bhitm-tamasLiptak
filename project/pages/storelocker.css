@@ -94,6 +94,14 @@ h2 {
     border: 3px solid var(--hover-color);
 }
 
+.addtocart.owned {
+  background-color: gray !important;
+  border: 3px solid lightgray !important;
+  color: white;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 img {
     width: 100%;
 }
