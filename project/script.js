@@ -196,6 +196,25 @@ function markOwnedGames() {
   });
 }
 
+function markHeaderPurchaseButtons() {
+  const ownedGames = JSON.parse(localStorage.getItem('ownedGames')) || [];
+
+  document.querySelectorAll('.purchasebuttonheader').forEach(button => {
+    const title = button.dataset.title;
+
+    const isOwned = ownedGames.some(item => item.title === title);
+
+    if (isOwned) {
+      button.innerText = "OWNED";
+      button.style.backgroundColor = "gray";
+      button.style.border = "3px solid lightgray";
+      button.style.cursor = "not-allowed";
+      button.classList.add('owned');
+      button.disabled = true;
+    }
+  });
+}
+
 function addToCart(game, button) {
   const exists = cart.some(item => item.title === game.title);
 
@@ -300,8 +319,12 @@ function calculateTotal() {
 }
 
 renderCart();
+markHeaderPurchaseButtons()
 
 const placeOrderBtn = document.querySelector('.placeorder');
+const modal = document.getElementById('order');
+const referralInput = document.querySelector('.referral');
+
 if (placeOrderBtn) {
   placeOrderBtn.addEventListener('click', () => {
     if (cart.length === 0) return;
@@ -320,15 +343,15 @@ if (placeOrderBtn) {
     saveCart();
     renderCart();
 
-    const modal = document.getElementById('order');
-    modal.style.display = 'flex';
-    document.querySelector('.referral').value = '';
+    modal.classList.add('show');
+
+    if (referralInput) referralInput.value = '';
   });
 }
 
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('close')) {
-    document.getElementById('order').style.display = 'none';
+    modal.classList.remove('show');
   }
 });
 

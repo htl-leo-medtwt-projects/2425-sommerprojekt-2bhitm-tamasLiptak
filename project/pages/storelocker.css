@@ -95,11 +95,11 @@ h2 {
 }
 
 .addtocart.owned {
-  background-color: gray !important;
-  border: 3px solid lightgray !important;
-  color: white;
-  cursor: not-allowed;
-  pointer-events: none;
+    background-color: gray !important;
+    border: 3px solid lightgray !important;
+    color: white;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 img {
@@ -226,7 +226,7 @@ img {
 }
 
 .orderconfirmation {
-    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
     position: fixed;
     top: 0;
     left: 0;
@@ -235,10 +235,22 @@ img {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    animation: popupFadeIn1 600ms ease-in-out forwards;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 400ms ease-in-out, visibility 0s linear 400ms;
+}
+
+.orderconfirmation.show {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
 }
 
 .orderconfirmationbox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
     padding: 5%;
@@ -247,8 +259,10 @@ img {
     color: white;
     font-family: bf-headline;
     box-shadow: 0 0 30px rgba(255, 60, 4, 0.5);
-    animation: popupFadeIn2 400ms ease-in-out forwards;
+    animation: popupFadeIn2 400ms ease-in-out;
+    z-index: 1000;
 }
+
 
 .orderconfirmationbox h1 {
     font-size: 6rem;
@@ -635,8 +649,8 @@ img {
 }
 
 .splash-overlay.activesplash {
-      display: flex;
-    }
+    display: flex;
+}
 
 /* #region Media Queries */
 @media (min-width: 2560px) {
@@ -675,7 +689,7 @@ img {
     .stat-name {
         font-size: 3rem;
     }
-    
+
     .stat-bar-container {
         height: 40px;
     }
@@ -714,6 +728,22 @@ img {
 
     .addtocart {
         margin: 0
+    }
+
+    .orderpreview {
+        padding-bottom: 15%;
+    }
+
+    .orderconfirmationbox {
+        width: 90%;
+    }
+
+    .orderconfirmationbox h1 {
+        font-size: 3rem;
+    }
+
+    .orderconfirmationbox p {
+        font-size: 1.5rem;
     }
 }
 
